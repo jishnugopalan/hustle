@@ -1,0 +1,201 @@
+<div class="container">
+    <div class="jumbotron">
+      <h1 class="display-4">HUSTLE</h1>
+      <p class="lead">Browse our selection of amazing products, and find the perfect item for you.</p>
+      <hr class="my-4">
+      <!-- <p>Start shopping now and enjoy a seamless shopping experience.</p>
+      <a class="btn btn-primary btn-lg" href="#" role="button">Shop Now</a> -->
+      <nav class="navbar navbar-expand-lg navbar-dark bg-success">
+        <div style="padding: 20px;">
+            <a class="navbar-brand" href="#">
+                <img src="../../assets/images/logo.jpg" width="100" height="100" alt="">
+            </a>
+        </div>
+      
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link  active" href="#">Home<span class="sr-only"></span></a>
+              </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#about">About<span class="sr-only"></span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#overview">Overview</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact">Contact</a>
+            </li>
+            <!-- <li class="nav-item">
+              <a class="nav-link disabled" href="#">Disabled</a>
+            </li> -->
+          </ul>
+         
+        </div>
+        <ul class="nav navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="/registration">Sign Up</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#login">Login</a>
+            </li>
+        </ul>
+      </nav>
+    </div>
+
+    <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="https://t3.ftcdn.net/jpg/00/75/62/34/360_F_75623488_vr1rg7zswOAHbVpYH6N0XsbEyW3ppyqa.jpg" height="500" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="https://previews.123rf.com/images/monticello/monticello1401/monticello140100058/25073629-composition-with-variety-of-grocery-products-isolated-on-white.jpg" height="500" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="https://i0.wp.com/www.smartbazaar.co.uk/wp-content/uploads/2020/06/grocery-items.png?ssl=1" height="500" class="d-block w-100" alt="...">
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+    
+    <!-- <div class="row">
+      <div class="col-md-4" *ngFor="let product of products">
+        <div class="card mb-4">
+          <img src="{{product.imageUrl}}" class="card-img-top" alt="{{product.name}}">
+          <div class="card-body">
+            <h5 class="card-title">{{product.name}}</h5>
+            <p class="card-text">{{product.description}}</p>
+            <p class="card-text"><strong>Price:</strong> {{product.price | currency}}</p>
+            <a href="#" class="btn btn-primary">Add to Cart</a>
+          </div>
+        </div>
+      </div>
+    </div> -->
+
+    <div class="row">
+        <div class="col-md-6 bg-light" id="overview">
+            <h3 class="text-center">Overview</h3>
+            <p align="justify">Welcome to our website dedicated to the sale of goods reaching their expiry! We are committed to promoting sustainability and reducing waste by providing customers with an easy and convenient way to purchase discounted products that are still safe and usable but may have a shorter shelf life than regular products.</p>
+        </div>
+        <div class="col-md-6 login" id="login">
+            <h3 class="text-center text-primary">Login</h3>
+            <form [formGroup]="loginform" (ngSubmit)="login()" >
+                <div class="col-md-12">
+                    <label for="email">Email</label>
+                    <input id="email" class="form-control" formControlName="username">
+                </div>
+                <div class="col-md-12" *ngIf="username && username.invalid && username.touched">
+                    <div class="text-danger">Email is required</div>
+        
+                </div>
+                
+                <div class="col-md-12">
+                    <label>Password</label>
+                    <input type="password" class="form-control" required formControlName="password">
+                </div>
+                <div class="col-md-12" *ngIf="password && password.invalid && password.touched">
+                    <div class="text-danger">Password is required</div>
+        
+                </div>
+                <a [routerLink]="['forgotpassword']">Forgot Password</a>
+                <div class="col-md-12">
+                    <button type="submit" [disabled]="!loginform.valid" class="btn btn-primary">Submit</button>
+                </div>
+                <div class="text-center alert alert-danger" role="alert" *ngIf="alert">
+                  <h5>Login error</h5>
+                {{msg}} 
+              </div>
+            </form>
+            
+        </div>
+    </div>
+   <br><br>
+    <div class="row">
+        
+        <div class="col-md-12 bg-light" id="about">
+            <h3 class="text-center">About us</h3>
+            <p align="justify">At HUSTLE, we believe in the importance of promoting sustainability and reducing waste. We are dedicated to offering a solution to the issue of food waste by providing a platform for the sale of goods reaching their expiry that are still safe and usable.
+
+                Our goal is to make sustainable living accessible to everyone by offering discounted products that would otherwise go to waste. We are committed to ensuring that all our products have gone through rigorous quality control measures and are safe for consumption.</p>
+        </div>
+    </div>
+
+    
+
+
+
+    <!-- Footer -->
+<footer class="page-footer pt-4">
+
+    <!-- Footer Links -->
+    <div class="container-fluid text-center text-md-left">
+  
+      <!-- Grid row -->
+      <div class="row">
+  
+        <!-- Grid column -->
+        <div class="col-md-6 mt-md-0 mt-3">
+  
+          <!-- Content -->
+          <h5 class="text-uppercase" id="contact">Contact</h5>
+          <p>India<br>
+
+            040-67607600<br>
+            Everyday 6:00 am - 10:00 pm.</p>
+  
+        </div>
+        <!-- Grid column -->
+  
+        <hr class="clearfix w-100 d-md-none pb-3">
+  
+        <!-- Grid column -->
+        <div class="col-md-3 mb-md-0 mb-3">
+  
+          <!-- Links -->
+          <h5>Main Menu</h5>
+  
+          <ul class="list-unstyled">
+            <li>
+              <a href="#!">Home</a>
+            </li>
+            <li>
+              <a href="#!">Overview</a>
+            </li>
+            <li>
+              <a href="#!">About</a>
+            </li>
+            <li>
+              <a href="#!">Contact</a>
+            </li>
+          </ul>
+  
+        </div>
+     
+  
+      </div>
+      <!-- Grid row -->
+  
+    </div>
+    <!-- Footer Links -->
+  
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">© 2023 Copyright:
+      <a href="/"> hustle.com</a>
+    </div>
+    <!-- Copyright -->
+  
+  </footer>
+  <!-- Footer -->
+  </div>
+  
