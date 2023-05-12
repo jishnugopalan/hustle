@@ -6,12 +6,16 @@ import { AppComponent } from './app.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RegistrationComponent } from './registration/registration.component';
+import { AboutComponent } from './about/about.component';
+import { HomeNavComponent } from './home-nav/home-nav.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomepageComponent,
     RegistrationComponent,
+    AboutComponent,
+    HomeNavComponent,
     
   ],
   imports: [
