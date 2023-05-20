@@ -11,7 +11,7 @@ import { HomeNavComponent } from './home-nav/home-nav.component';
 import { FooterComponent } from './footer/footer.component';
 import { ContactComponent } from './contact/contact.component';
 import { ShopregistrationComponent } from './shopregistration/shopregistration.component';
-
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,7 +27,8 @@ import { ShopregistrationComponent } from './shopregistration/shopregistration.c
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -16,18 +16,18 @@
 
     <h1 class="text-center">Customer Registration</h1>
     
-    <div class="reg">
+    <div class="reg d-flex justify-content-center">
     <form [formGroup]="registration" (ngSubmit)="register()">
       
-        <div class="row" style="padding: 10px;">
+        <div class="row">
           
-            <div class="col-md-6 form-floating">
+            <div class="col-md-12 form-floating" style="padding: 10px;">
                 
                 <input class="form-control" formControlName="fullname" id="fullname" placeholder="Your Name">
                 <label>Name</label>
                 <div class="text-danger"  *ngIf="fullname && fullname.invalid && fullname.touched">Name is required</div>
             </div>
-            <div class="col-md-6 form-floating">
+            <div class="col-md-12 form-floating" style="padding: 10px;">
               
                 <input class="form-control" formControlName="phone" id="phone" placeholder="Phone">
                 <label>Phone</label>
@@ -39,18 +39,18 @@
        
         
        
-        <div class="row" style="padding: 10px;">
+        <div class="row">
            
           
-            <div class="col-md-12 form-floating">
+            <div class="col-md-12 form-floating" style="padding: 10px;">
               
                 <input class="form-control" formControlName="username" id="username" placeholder="Email">
                 <label>Email</label>
                 <div class="text-danger" *ngIf="username && username.invalid && username.touched">Email is required</div>
             </div>
         </div>
-        <div class="row" style="padding: 10px;">
-            <div class="col-md-6 form-floating">
+        <div class="row">
+                 <div class="col-md-12 form-floating" style="padding: 10px;">
                
                   <input 
                     formControlName="password"
@@ -60,7 +60,7 @@
                     <label>Password</label>
                     <div class="text-danger" *ngIf="password && password.invalid && password.touched">Minimum length (6) is required</div>
                 </div>
-                <div class="col-md-6 form-floating">
+                <div class="col-md-12 form-floating" style="padding: 10px;">
                     
                     <input 
                     formControlName="confirm_password"
@@ -72,6 +72,23 @@
                     <div class="text-danger" *ngIf="registration.hasError('notSame')">Password not match</div>
     
                 </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <label class="text-primary">Security Question <span class="text-danger">*</span></label>
+                <select class="form-select" formControlName="security_question" aria-label="Default select example">
+                    <option value selected disabled>Select a question</option>
+                    <option value="Who is your best friend">Who is your best friend</option>
+                    <option value="What is your favorite food">What is your favorite food</option>
+                    <option value="Who is your favorite actor">Who is your favorite actor</option>
+                  </select>
+                  <div class="text-danger"  *ngIf="security_question && security_question.invalid && security_question.touched">Security question is required</div>
+            </div>
+           <div class="col-md-6 form-floating" style="padding: 10px;">               
+            <input class="form-control" type="text" formControlName="security_answer" id="security_answer" placeholder="Security Answer">
+            <label class="text-primary">Security Answer <span class="text-danger">*</span></label>
+            <div class="text-danger"  *ngIf="security_answer && security_answer.invalid && security_answer.touched">Security answer is required</div>
+          </div>
         </div>
         
             

@@ -40,6 +40,16 @@ export class RegistrationComponent {
     confirm_password:new FormControl('',[
       Validators.required,
       Validators.minLength(6)
+    ]),
+    security_question:new FormControl('',[
+      Validators.required,
+      Validators.minLength(2),
+    
+    ]),
+    security_answer:new FormControl('',[
+      Validators.required,
+      Validators.minLength(2),
+    
     ])
     
   },{validators:this.checkPasswords})
@@ -69,6 +79,12 @@ export class RegistrationComponent {
   }
   get confirm_password(){
     return this.registration.get('confirm_paswword')
+  }
+  get security_question(){
+    return this.registration.get("security_question")
+  }
+  get security_answer(){
+    return this.registration.get("security_answer")
   }
   register(){
     console.log(this.registration.value)

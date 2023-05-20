@@ -1,1 +1,215 @@
-<p>shopregistration works!</p>
+<app-home-nav></app-home-nav>
+<div class="container-fluid page-header mb-5 wow fadeIn" data-wow-delay="0.1s">
+  <div class="container">
+      <h1 class="display-3 mb-3 animated slideInDown">Shop Registration</h1>
+      <!-- <nav aria-label="breadcrumb animated slideInDown">
+          <ol class="breadcrumb mb-0">
+              <li class="breadcrumb-item"><a class="text-body" href="#">Home</a></li>
+              <li class="breadcrumb-item"><a class="text-body" href="#">Pages</a></li>
+              <li class="breadcrumb-item text-dark active" aria-current="page">About Us</li>
+          </ol>
+      </nav> -->
+  </div>
+</div>
+<div class="container">
+    <h1 class="text-center">Shop Registration</h1>
+    <form [formGroup]="registration" (ngSubmit)="register()">
+        <h3>Owner Details</h3>
+        <div class="row">
+          
+            <div class="col-md-6 form-floating" style="padding: 10px;">               
+                <input class="form-control" formControlName="fullname" id="fullname" placeholder="Full Name">
+                <label class="text-primary">Full Name <span class="text-danger">*</span></label>
+                <div class="text-danger"  *ngIf="fullname && fullname.invalid && fullname.touched">Name is required</div>
+            </div>
+
+            <div class="col-md-6 form-floating" style="padding: 10px;">
+                <input class="form-control" formControlName="email" id="email" placeholder="Email">
+                <label class="text-primary">Email <span class="text-danger">*</span></label>
+                <div class="text-danger"  *ngIf="email && email.invalid && email.touched">Email is required</div>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-md-6 form-floating" style="padding: 10px;">               
+                <input class="form-control" formControlName="phone" id="phone" placeholder="Phone Number">
+                <label class="text-primary">Phone Number <span class="text-danger">*</span></label>
+                <div class="text-danger"  *ngIf="phone && phone.invalid && phone.touched">Phone number is required</div>
+            </div>
+
+            <div class="col-md-6 form-floating" style="padding: 10px;">
+                <input class="form-control" formControlName="owner_housename" id="owner_housename" placeholder="House Name">
+                <label class="text-primary">House Name <span class="text-danger">*</span></label>
+                <div class="text-danger"  *ngIf="owner_housename && owner_housename.invalid && owner_housename.touched">House name is required</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 form-floating" style="padding: 10px;">               
+                <input class="form-control" formControlName="owner_street" id="owner_street" placeholder="Street">
+                <label class="text-primary">Street <span class="text-danger">*</span></label>
+                <div class="text-danger"  *ngIf="owner_street && owner_street.invalid && owner_street.touched">Street is required</div>
+            </div>
+
+            <div class="col-md-6 form-floating" style="padding: 10px;">
+                <label class="text-primary">City <span class="text-danger">*</span></label>
+                <select class="form-select" aria-label="Default select example" formControlName="owner_city" id="owner_city">
+                    <option value="" disabled selected>Select City</option>
+                    <option value="{{d}}" *ngFor="let d of city">{{d}}</option>
+                    
+                   
+                  </select>
+                <div class="text-danger"  *ngIf="owner_city && owner_city.invalid && owner_city.touched">City is required</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 form-floating" style="padding: 10px;">
+                <label class="text-primary">District <span class="text-danger">*</span></label>
+                <select class="form-select" aria-label="Default select example" formControlName="owner_district" id="owner_district">
+                    <option value="" disabled selected>Select District</option>
+                    <option value="Alappuzha">Alappuzha</option>
+                    <option value="Ernakulam">Ernakulam</option>
+                    <option value="Kozhikode">Kozhikode</option>
+                    <option value="Palakkad">Palakkad</option>
+                    <option value="Kollam">Kollam</option>
+                    <option value="Kannur">Kannur</option>
+                    <option value="Kasaragod">Kasaragod</option>
+                    <option value="Idukki">Idukki</option>
+                    <option value="Kottayam">Kottayam</option>
+                    <option value="Thrissur">Thrissur</option>
+                    <option value="Pathanamthitta">Pathanamthitta</option>
+                    <option value="Malappuram">Malappuram</option>
+                    <option value="Wayanad">Wayanad</option>
+                    <option value="Thiruvananthapuram">Thiruvananthapuram</option>
+
+                   
+                  </select>
+                <div class="text-danger"  *ngIf="owner_district && owner_district.invalid && owner_district.touched">District is required</div>
+            </div>
+            <div class="col-md-6 form-floating" style="padding: 10px;">               
+                <input class="form-control" type="number" formControlName="owner_pincode" id="owner_pincode" placeholder="Pincode">
+                <label class="text-primary">Pincode <span class="text-danger">*</span></label>
+                <div class="text-danger"  *ngIf="owner_pincode && owner_pincode.invalid && owner_pincode.touched">Pincode is required</div>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-md-6 form-floating" style="padding: 10px;">               
+                <input class="form-control" type="number" formControlName="owner_adhaar" id="owner_adhaar" placeholder="Adhaar Number">
+                <label class="text-primary">Adhaar Number <span class="text-danger">*</span></label>
+                <div class="text-danger"  *ngIf="owner_adhaar && owner_adhaar.invalid && owner_adhaar.touched">Adhaar number is required</div>
+            </div>
+        </div>
+        <div class="row">
+            <h3>Shop Details</h3>
+            <div class="col-md-6 form-floating" style="padding: 10px;">               
+                <input class="form-control" type="text" formControlName="shop_street" id="shop_street" placeholder="Shop Street">
+                <label class="text-primary">Shop Street <span class="text-danger">*</span></label>
+                <div class="text-danger"  *ngIf="shop_street && shop_street.invalid && shop_street.touched">Shop street is required</div>
+            </div>
+
+            <div class="col-md-6 form-floating" style="padding: 10px;">
+                <label class="text-primary">Shop City <span class="text-danger">*</span></label>
+                <select class="form-select" aria-label="Default select example" formControlName="shop_city" id="shop_city">
+                    <option value="" disabled selected>Select City</option>
+                    <option value="{{d}}" *ngFor="let d of city">{{d}}</option>
+                  </select>
+                <div class="text-danger"  *ngIf="shop_city && shop_city.invalid && shop_city.touched">Shop city is required</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 form-floating" style="padding: 10px;">
+                <label class="text-primary">Shop District <span class="text-danger">*</span></label>
+                <select class="form-select" aria-label="Default select example" formControlName="shop_district" id="shop_district">
+                    <option value="" disabled selected>Select District</option>
+                    <option value="Alappuzha">Alappuzha</option>
+                    <option value="Ernakulam">Ernakulam</option>
+                    <option value="Kozhikode">Kozhikode</option>
+                    <option value="Palakkad">Palakkad</option>
+                    <option value="Kollam">Kollam</option>
+                    <option value="Kannur">Kannur</option>
+                    <option value="Kasaragod">Kasaragod</option>
+                    <option value="Idukki">Idukki</option>
+                    <option value="Kottayam">Kottayam</option>
+                    <option value="Thrissur">Thrissur</option>
+                    <option value="Pathanamthitta">Pathanamthitta</option>
+                    <option value="Malappuram">Malappuram</option>
+                    <option value="Wayanad">Wayanad</option>
+                    <option value="Thiruvananthapuram">Thiruvananthapuram</option>
+
+                   
+                  </select>
+                <div class="text-danger"  *ngIf="shop_district && shop_district.invalid && shop_district.touched">Shop district is required</div>
+            </div>
+
+            <div class="col-md-6 form-floating" style="padding: 10px;">               
+                <input class="form-control" type="number" formControlName="shop_pincode" id="shop_pincode" placeholder="Shop Pincode">
+                <label class="text-primary">Shop Pincode <span class="text-danger">*</span></label>
+                <div class="text-danger"  *ngIf="shop_pincode && shop_pincode.invalid && shop_pincode.touched">Shop pincode is required</div>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-md-6 form-floating" style="padding: 10px;">               
+                <input class="form-control" type="number" formControlName="shop_phone" id="shop_phone" placeholder="Shop Phone Number">
+                <label class="text-primary">Shop Phone Number <span class="text-danger">*</span></label>
+                <div class="text-danger"  *ngIf="shop_phone && shop_phone.invalid && shop_phone.touched">Shop phone number is required</div>
+            </div>
+
+            <div class="col-md-6 form-floating" style="padding: 10px;">               
+                <input class="form-control" type="email" formControlName="shop_email" id="shop_email" placeholder="Shop Email">
+                <label class="text-primary">Shop Email <span class="text-danger">*</span></label>
+                <div class="text-danger"  *ngIf="shop_email && shop_email.invalid && shop_email.touched">Shop email is required</div>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-mb-6">
+                <label class="text-primary">Shop License <span class="text-danger">*</span></label>
+                <input class="form-control" formControlName="shop_license" type="file" id="shop_license">
+                <div class="text-danger"  *ngIf="shop_license && shop_license.invalid && shop_license.touched">Shop License is required</div>
+            </div>
+        </div>
+        <div class="row">
+            <h3>Password & Security</h3>
+            <div class="col-md-6 form-floating" style="padding: 10px;">               
+                <input class="form-control" type="password" formControlName="password" id="password" placeholder="Password">
+                <label class="text-primary">Password <span class="text-danger">*</span></label>
+                <div class="text-danger" *ngIf="password && password.invalid && password.touched">Minimum length (6) is required</div>
+            </div>
+            <div class="col-md-6 form-floating" style="padding: 10px;">               
+                <input class="form-control" type="password" formControlName="confirm_password" id="confirm_password" placeholder="Confirm Password">
+                <label class="text-primary">Confirm Password <span class="text-danger">*</span></label>
+                <div class="text-danger"  *ngIf="confirm_password && confirm_password.invalid && confirm_password.touched">Confirm password is required</div>
+                <div class="text-danger" *ngIf="registration.hasError('notSame')">Password not match</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <label class="text-primary">Security Question <span class="text-danger">*</span></label>
+                <select class="form-select" formControlName="security_question" aria-label="Default select example">
+                    <option value selected disabled>Select a question</option>
+                    <option value="Who is your best friend">Who is your best friend</option>
+                    <option value="What is your favorite food">What is your favorite food</option>
+                    <option value="Who is your favorite actor">Who is your favorite actor</option>
+                  </select>
+                  <div class="text-danger"  *ngIf="security_question && security_question.invalid && security_question.touched">Security question is required</div>
+            </div>
+           <div class="col-md-6 form-floating" style="padding: 10px;">               
+            <input class="form-control" type="text" formControlName="security_answer" id="security_answer" placeholder="Security Answer">
+            <label class="text-primary">Security Answer <span class="text-danger">*</span></label>
+            <div class="text-danger"  *ngIf="security_answer && security_answer.invalid && security_answer.touched">Security answer is required</div>
+          </div>
+        </div>
+        <div class="col-md-12">
+           <div class="text-center">
+            <button class="btn btn-primary"  [disabled]="!registration.valid">Submit</button>
+           </div>
+        </div>
+    </form>
+
+    
+</div>
+
+<!-- Footer Start -->
+<app-footer></app-footer>
+<!-- Footer End -->
