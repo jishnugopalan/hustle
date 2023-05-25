@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, ValidatorFn, Validators,ValidationErrors } from '@angular/forms';
+import { AuthserviceService } from '../services/authservice.service';
 
 @Component({
   selector: 'app-registration',
@@ -7,21 +8,21 @@ import { AbstractControl, FormControl, FormGroup, ValidatorFn, Validators,Valida
   styleUrls: ['./registration.component.css']
 })
 export class RegistrationComponent {
-  dep:any
-  reg=false
+ 
   alert=false
   msg=""
-  otp=false
+  reg=true
+  
   checkPasswords: ValidatorFn = (group: AbstractControl):  ValidationErrors | null => { 
     let pass = group.get('password')?.value
     let confirmPass = group.get('confirm_password')?.value
     return pass === confirmPass ? null : { notSame: true }
   }
   registration=new FormGroup({
-    fullname:new FormControl('',[
+    name:new FormControl('',[
       Validators.required
     ]),
-    username:new FormControl('',[
+    email:new FormControl('',[
       Validators.required,
       Validators.email
     ]),
@@ -50,7 +51,8 @@ export class RegistrationComponent {
       Validators.required,
       Validators.minLength(2),
     
-    ])
+    ]),
+    usertype:new FormControl()
     
   },{validators:this.checkPasswords})
 
@@ -62,12 +64,12 @@ export class RegistrationComponent {
     return this.registration.get('department')
 
   }
-  get fullname(){
-    return this.registration.get('fullname')
+  get name(){
+    return this.registration.get('name')
 
   }
-  get username(){
-    return this.registration.get('username')
+  get email(){
+    return this.registration.get('email')
 
   }
   get phone(){
@@ -87,6 +89,19 @@ export class RegistrationComponent {
     return this.registration.get("security_answer")
   }
   register(){
+    this.registration.value.usertype="customer"
     console.log(this.registration.value)
+    this.service.usersRegistration(this.registration.value).subscribe((res:any)=>{
+      console.log(res)
+      this.reg=false
+      
+    },error=>{
+      console.log(error.error.msg)
+      this.alert=true
+      this.msg=error.error.msg
+    })
+  }
+  constructor(private service:AuthserviceService){
+
   }
 }

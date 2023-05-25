@@ -14,18 +14,21 @@
 <div class="container">
   
 
-    <h1 class="text-center">Customer Registration</h1>
+    <!-- <h1 class="text-center">Customer Registration</h1> -->
     
-    <div class="reg d-flex justify-content-center">
+    <div class="reg d-flex justify-content-center" *ngIf="reg" >
+        
     <form [formGroup]="registration" (ngSubmit)="register()">
-      
+        <div class="col-md-12 alert alert-danger" role="alert" *ngIf="alert">
+          {{msg}}
+          </div>
         <div class="row">
           
             <div class="col-md-12 form-floating" style="padding: 10px;">
                 
-                <input class="form-control" formControlName="fullname" id="fullname" placeholder="Your Name">
+                <input class="form-control" formControlName="name" id="name" placeholder="Your Name">
                 <label>Name</label>
-                <div class="text-danger"  *ngIf="fullname && fullname.invalid && fullname.touched">Name is required</div>
+                <div class="text-danger"  *ngIf="name && name.invalid && name.touched">Name is required</div>
             </div>
             <div class="col-md-12 form-floating" style="padding: 10px;">
               
@@ -44,9 +47,9 @@
           
             <div class="col-md-12 form-floating" style="padding: 10px;">
               
-                <input class="form-control" formControlName="username" id="username" placeholder="Email">
+                <input class="form-control" formControlName="email" id="email" placeholder="Email">
                 <label>Email</label>
-                <div class="text-danger" *ngIf="username && username.invalid && username.touched">Email is required</div>
+                <div class="text-danger" *ngIf="email && email.invalid && email.touched">Email is required</div>
             </div>
         </div>
         <div class="row">
@@ -114,12 +117,27 @@
         </form>
 
     </div> -->
+    
+
    
 
 </div>
 
-       
+<div class="card text-center" *ngIf="!reg">
+    <div class="card-header">
+      
+    </div>
+    <div class="card-body">
+      <h2 class="card-title text-success">Registration Successful</h2>
+      <p class="card-text">You are registered successfully with HUTSLE</p>
+      <a href="/#login" class="btn btn-primary">Login</a>
+    </div>
+    <div class="card-footer text-muted">
+      
+    </div>
+</div> 
 </div>
+
 <!-- Footer Start -->
 <app-footer></app-footer>
 <!-- Footer End -->

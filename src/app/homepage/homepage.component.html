@@ -67,13 +67,38 @@
                   <img class="img-fluid w-100" src="../../assets/img/about.jpg">
               </div>
           </div>
-          <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
+          <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s" id="login">
+            <h3 class="text-center text-success">Login</h3>
+            <form [formGroup]="loginform" (ngSubmit)="login()">
+
+                <label>Email</label>
+                <input type="text" class="form-control" formControlName="email" style="height:80px">
+                <div class="col-md-12" *ngIf="email && email.invalid && email.touched">
+                    <div class="text-danger">Email is required</div>
+                </div>
+                <label>Password</label>
+                <input type="password" class="form-control" formControlName="password" style="height:80px">
+                <div class="col-md-12" *ngIf="password && password.invalid && password.touched">
+                    <div class="text-danger">Password is required</div>
+        
+                </div>
+                <br>
+                <a [routerLink]="['forgotpassword']">Forgot Password</a>
+                <div class="text-center">
+                    <button class="btn btn-success rounded-pill py-3 px-5 mt-3">Login</button>
+
+                </div>
+            </form>
+            <div class="text-center alert alert-danger" role="alert" *ngIf="alert">
+                <h5>Login error</h5>
+              {{msg}} 
+            </div>
               <h1 class="display-5 mb-4">Best Organic Fruits And Vegetables</h1>
               <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet</p>
-              <p><i class="fa fa-check text-primary me-3"></i>Tempor erat elitr rebum at clita</p>
+              <!-- <p><i class="fa fa-check text-primary me-3"></i>Tempor erat elitr rebum at clita</p>
               <p><i class="fa fa-check text-primary me-3"></i>Aliqu diam amet diam et eos</p>
               <p><i class="fa fa-check text-primary me-3"></i>Clita duo justo magna dolore erat amet</p>
-              <a class="btn btn-primary rounded-pill py-3 px-5 mt-3" href="">Read More</a>
+              <a class="btn btn-primary rounded-pill py-3 px-5 mt-3" href="">Read More</a> -->
           </div>
       </div>
   </div>
@@ -191,7 +216,7 @@
                   <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
                       <div class="product-item">
                           <div class="position-relative bg-light overflow-hidden">
-                              <img class="img-fluid w-100" src="../../ass/product-3.jpg" alt="">
+                              <img class="img-fluid w-100" src="../../assets/product-3.jpg" alt="">
                               <div class="bg-secondary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">New</div>
                           </div>
                           <div class="text-center p-4">

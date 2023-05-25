@@ -1,0 +1,48 @@
+<app-shop-nav></app-shop-nav>
+<div class="container-fluid page-header mb-5 wow fadeIn" data-wow-delay="0.1s">
+    <div class="container">
+        <h1 class="display-3 mb-3 animated slideInDown">My Products</h1>
+        <!-- <nav aria-label="breadcrumb animated slideInDown">
+            <ol class="breadcrumb mb-0">
+                <li class="breadcrumb-item"><a class="text-body" href="#">Home</a></li>
+                <li class="breadcrumb-item"><a class="text-body" href="#">Pages</a></li>
+                <li class="breadcrumb-item text-dark active" aria-current="page">About Us</li>
+            </ol>
+        </nav> -->
+    </div>
+  </div>
+  <div class="container">
+    <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger"  class="table table-bordered table-striped table-hover">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Product Name</th>
+            <th scope="col">Category</th>
+            <th scope="col">Subcategory</th>
+
+
+            <th scope="col">Current Stock</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let p of myproducts;index as i">
+            <td>{{ i+1 }}</td>
+            <td>{{ p.productname }}</td>
+            <td>{{ p.category.category }}</td>
+            <td>{{ p.subcategory.subcategory }}</td>
+
+            <td>
+               {{p.stock}}
+            </td>
+            <td>
+                
+                <a [routerLink]="['/viewmyproduct', p._id]">
+                    <button  class="btn btn-primary">View</button>
+                </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      
+  </div>

@@ -13,14 +13,17 @@
 </div>
 <div class="container">
     <h1 class="text-center">Shop Registration</h1>
-    <form [formGroup]="registration" (ngSubmit)="register()">
+    <form [formGroup]="registration" (ngSubmit)="register()" *ngIf="reg">
         <h3>Owner Details</h3>
+        <div class="col-md-12 alert alert-danger" role="alert" *ngIf="alert">
+            {{msg}}
+        </div>
         <div class="row">
           
             <div class="col-md-6 form-floating" style="padding: 10px;">               
-                <input class="form-control" formControlName="fullname" id="fullname" placeholder="Full Name">
+                <input class="form-control" formControlName="name" id="name" placeholder="Full Name">
                 <label class="text-primary">Full Name <span class="text-danger">*</span></label>
-                <div class="text-danger"  *ngIf="fullname && fullname.invalid && fullname.touched">Name is required</div>
+                <div class="text-danger"  *ngIf="name && name.invalid && name.touched">Name is required</div>
             </div>
 
             <div class="col-md-6 form-floating" style="padding: 10px;">
@@ -165,7 +168,7 @@
         <div class="row">
             <div class="col-mb-6">
                 <label class="text-primary">Shop License <span class="text-danger">*</span></label>
-                <input class="form-control" formControlName="shop_license" type="file" id="shop_license">
+                <input class="form-control" formControlName="shop_license" type="file" id="shop_license" (change)="onFileSelected($event)" accept=".png, .jpg, .jpeg" >
                 <div class="text-danger"  *ngIf="shop_license && shop_license.invalid && shop_license.touched">Shop License is required</div>
             </div>
         </div>
@@ -206,7 +209,19 @@
            </div>
         </div>
     </form>
-
+    <div class="card text-center" *ngIf="!reg">
+        <div class="card-header">
+          
+        </div>
+        <div class="card-body">
+          <h2 class="card-title text-success">Registration Successful</h2>
+          <p class="card-text">You are registered successfully with HUTSLE</p>
+          <a href="/#login" class="btn btn-primary">Login</a>
+        </div>
+        <div class="card-footer text-muted">
+          
+        </div>
+    </div> 
     
 </div>
 

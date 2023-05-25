@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
 import { UtilityServicesService } from '../services/utility-services.service';
-
+import { AuthserviceService } from '../services/authservice.service';
+import { NgxImageCompressService } from 'ngx-image-compress';
 @Component({
   selector: 'app-shopregistration',
   templateUrl: './shopregistration.component.html',
@@ -15,13 +16,15 @@ export class ShopregistrationComponent {
     return pass === confirmPass ? null : { notSame: true }
   }
   city:any
+  alert=false
+  msg=""
+  reg=true
 
 
+  constructor(private formBuilder: FormBuilder,private service:UtilityServicesService,private service2:AuthserviceService) {}
 
-  constructor(private formBuilder: FormBuilder,private service:UtilityServicesService) {}
-
-  get fullname(){
-    return this.registration.get('fullname')
+  get name(){
+    return this.registration.get('name')
   }
   get email(){
     return this.registration.get("email")
@@ -83,6 +86,19 @@ export class ShopregistrationComponent {
 
   register(){
     console.log(this.registration.value)
+    this.registration.value.usertype="shop"
+    this.registration.value.shop_license=this.imageBase64
+    console.log(this.registration.value)
+
+    this.service2.usersRegistration(this.registration.value).subscribe((res:any)=>{
+      console.log(res)
+      this.reg=false
+      
+    },error=>{
+      console.log(error.error.msg)
+      this.alert=true
+      this.msg=error.error.msg
+    })
   }
 
 
@@ -92,7 +108,7 @@ export class ShopregistrationComponent {
       this.city=res.data
     })
     this.registration=this.formBuilder.group({
-      fullname:new FormControl('',[
+      name:new FormControl('',[
         Validators.required
       ]),
       email:new FormControl('',[
@@ -184,9 +200,29 @@ export class ShopregistrationComponent {
         Validators.required,
         Validators.minLength(2),
       
-      ])
+      ]),
+      usertype:new FormControl()
 
     },{validators:this.checkPasswords})
   }
+ 
+  imageBase64: string | ArrayBuffer = '';
 
+  onFileSelected(event: any) {
+    const file:File = event.target.files[0];
+
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = this.handleReaderLoaded.bind(this);
+      reader.readAsDataURL(file);
+      
+    }
+    
+  }
+
+  handleReaderLoaded(e: any) {
+    this.imageBase64 = e.target.result;
+    console.log(this.imageBase64)
+    
+  }
 }

@@ -12,6 +12,15 @@ import { FooterComponent } from './footer/footer.component';
 import { ContactComponent } from './contact/contact.component';
 import { ShopregistrationComponent } from './shopregistration/shopregistration.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { LoginComponent } from './login/login.component';
+import { CustomerdashboardComponent } from './customer/customerdashboard/customerdashboard.component';
+import { ShopdashboardComponent } from './shop/shopdashboard/shopdashboard.component';
+import { ShopNavComponent } from './shop/shop-nav/shop-nav.component';
+import { CustomerNavComponent } from './customer/customer-nav/customer-nav.component';
+import { AddproductComponent } from './shop/addproduct/addproduct.component';
+import { MyproductsComponent } from './shop/myproducts/myproducts.component';
+import { DataTablesModule } from 'angular-datatables';
+import { ViewmyproductComponent } from './shop/viewmyproduct/viewmyproduct.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,6 +31,14 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
     FooterComponent,
     ContactComponent,
     ShopregistrationComponent,
+    LoginComponent,
+    CustomerdashboardComponent,
+    ShopdashboardComponent,
+    ShopNavComponent,
+    CustomerNavComponent,
+    AddproductComponent,
+    MyproductsComponent,
+    ViewmyproductComponent,
     
   ],
   imports: [
@@ -29,6 +46,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
+    DataTablesModule
   ],
   providers: [],
   bootstrap: [AppComponent]

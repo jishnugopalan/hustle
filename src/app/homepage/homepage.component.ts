@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { AuthserviceService } from '../services/authservice.service';
+import { TokenserviceService } from '../services/tokenservice.service';
 
 @Component({
   selector: 'app-homepage',
@@ -7,21 +9,10 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./homepage.component.css']
 })
 export class HomepageComponent {
-  products = [
-    {
-      name: 'Product 1',
-      description: 'This is a description of Product 1',
-      price: 19.99,
-      imageUrl: 'https://via.placeholder.com/150'
-    },
-    {
-      name: 'Product 2',
-      description: 'This is a description of Product 2',
-      price: 29.99,
-      imageUrl: 'https://via.placeholder.com/150'
-    },
-    // Add more products here
-  ];
+  constructor(private service:AuthserviceService,private tokenStorage: TokenserviceService){
+
+  }
+ 
   msg=""
   alert=false
   isLoggedIn = false;
@@ -30,20 +21,60 @@ export class HomepageComponent {
   roles: string[] = [];
 
   loginform=new FormGroup({
-    username:new FormControl('',[
+    email:new FormControl('',[
       Validators.required,
       Validators.email
     ]),
     password:new FormControl('',Validators.required),
   })
-  get username(){
-    return this.loginform.get('username');
+  get email(){
+    return this.loginform.get('email');
   }
   get password(){
     return this.loginform.get('password');
   }
   login(){
     console.log(this.loginform.value)
+    this.service.login(this.loginform.value).subscribe((res:any)=>{
+      console.log(res)
+      this.tokenStorage.saveToken(res.token);
+      this.tokenStorage.saveUser(res.user);
+      this.isLoginFailed = false;
+      this.isLoggedIn = true;
+      this.roles = this.tokenStorage.getUser().roles;
+      this.reloadPage();
+    },error=>{
+      console.log(error)
+      
+        if(error.error==null){
+          this.alert=true
+          this.msg="Incorrect password"
+
+        }
+        else{
+          this.alert=true
+          this.msg=error.error.msg
+        }
+
+    })
   }
+  reloadPage(): void {
+    window.location.reload();
+  }
+  ngOnInit(): void {
+
+    if (this.tokenStorage.getToken()) {
+      console.log("in")
+      const user = this.tokenStorage.getUser();
+      console.log(user)
+      this.isLoggedIn = true;
+      this.roles = this.tokenStorage.getUser().usertype;
+      console.log(this.roles)
+    }
+    else{
+      console.log("no user")
+    }
+  }
+
 
 }

@@ -1,0 +1,85 @@
+<app-shop-nav></app-shop-nav>
+
+<div class="container">
+    <h2 class="text-center">Add Product</h2>
+    <form [formGroup]="productForm" (ngSubmit)="onSubmit()" class="container mt-5">
+        <div class="mb-3">
+          <label class="form-label">Product Name:</label>
+          <input type="text" formControlName="productname" class="form-control" [ngClass]="{'is-invalid': productname?.invalid && (productname?.dirty || productname?.touched)}">
+          <div class="invalid-feedback" *ngIf="productname?.invalid && (productname?.dirty || productname?.touched)">
+            Product Name is required.
+          </div>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Category:</label>
+          <select (change)="getSubCategory()" class="form-select" aria-label="Default select example" formControlName="category" class="form-control" [ngClass]="{'is-invalid': category?.invalid && (category?.dirty || category?.touched)}">
+          <option value="" selected disabled>Select a category</option>
+            <option value="{{c._id}}" *ngFor="let c of categories">{{c.category}}</option>
+          
+          </select>
+          <!-- <input type="text" formControlName="category" class="form-control" [ngClass]="{'is-invalid': category?.invalid && (category?.dirty || category?.touched)}"> -->
+          <div class="invalid-feedback" *ngIf="category?.invalid && (category?.dirty || category?.touched)">
+            Category is required.
+          </div>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Subcategory:</label>
+          <select class="form-select" aria-label="Default select example" formControlName="subcategory" class="form-control" [ngClass]="{'is-invalid': subcategory?.invalid && (subcategory?.dirty || subcategory?.touched)}">
+            <option value="" selected disabled>Select a subcategory</option>
+            <option value="{{c._id}}" *ngFor="let c of subcategories">{{c.subcategory}}</option>
+          </select>
+          <!-- <input type="text" formControlName="subcategory" class="form-control" [ngClass]="{'is-invalid': subcategory?.invalid && (subcategory?.dirty || subcategory?.touched)}"> -->
+          <div class="invalid-feedback" *ngIf="subcategory?.invalid && (subcategory?.dirty || subcategory?.touched)">
+            Subcategory is required.
+          </div>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Price:</label>
+          <input type="number" formControlName="price" class="form-control" [ngClass]="{'is-invalid': price?.invalid && (price?.dirty || price?.touched)}">
+          <div class="invalid-feedback" *ngIf="price?.invalid && (price?.dirty || price?.touched)">
+            Price is required and should be a number.
+          </div>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Stock:</label>
+          <input type="number" formControlName="stock" class="form-control" [ngClass]="{'is-invalid': stock?.invalid && (stock?.dirty || stock?.touched)}">
+          <div class="invalid-feedback" *ngIf="stock?.invalid && (stock?.dirty || stock?.touched)">
+            Stock is required and should be a number.
+          </div>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Image:</label>
+          <input type="file" formControlName="image" (change)="onFileSelected($event)" accept=".png, .jpg, .jpeg"  class="form-control" [ngClass]="{'is-invalid': image?.invalid && (image?.dirty || image?.touched)}">
+          <div class="invalid-feedback" *ngIf="image?.invalid && (image?.dirty || image?.touched)">
+            Image is required.
+          </div>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Description:</label>
+          <textarea formControlName="description" class="form-control" [ngClass]="{'is-invalid': description?.invalid && (description?.dirty || description?.touched)}"></textarea>
+          <div class="invalid-feedback" *ngIf="description?.invalid && (description?.dirty || description?.touched)">
+            Description is required.
+          </div>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Expiry Date:</label>
+          <input type="date" formControlName="expiry_date" class="form-control" [ngClass]="{'is-invalid': expiry_date?.invalid && (expiry_date?.dirty || expiry_date?.touched)}">
+          <div class="invalid-feedback" *ngIf="expiry_date?.invalid && (expiry_date?.dirty || expiry_date?.touched)">
+            Expiry Date is required.
+          </div>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Discount Percentage:</label>
+          <input type="number" formControlName="discount_percentage" class="form-control" [ngClass]="{'is-invalid': discount_percentage?.invalid && (discount_percentage?.dirty || discount_percentage?.touched)}">
+          <div class="invalid-feedback" *ngIf="discount_percentage?.invalid && (discount_percentage?.dirty || discount_percentage?.touched)">
+            Discount Percentage is required and should be a number.
+          </div>
+        </div>
+        <button type="submit" [disabled]="!productForm.valid" class="btn btn-primary">Submit</button>
+      </form>
+      
+      
+      
+      
+      
+  </div>

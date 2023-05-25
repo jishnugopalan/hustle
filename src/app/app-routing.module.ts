@@ -5,6 +5,12 @@ import { RegistrationComponent } from './registration/registration.component';
 import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
 import { ShopregistrationComponent } from './shopregistration/shopregistration.component';
+import { LoginComponent } from './login/login.component';
+import { ShopdashboardComponent } from './shop/shopdashboard/shopdashboard.component';
+import { CustomerdashboardComponent } from './customer/customerdashboard/customerdashboard.component';
+import { AddproductComponent } from './shop/addproduct/addproduct.component';
+import { MyproductsComponent } from './shop/myproducts/myproducts.component';
+import { ViewmyproductComponent } from './shop/viewmyproduct/viewmyproduct.component';
 
 const routes: Routes = [
   {path:"",component:HomepageComponent},
@@ -20,6 +26,25 @@ const routes: Routes = [
   {
     path:"shopregistration",component:ShopregistrationComponent
   },
+  {
+    path:"login",component:LoginComponent
+  },
+  {
+    path:"customerdash",component:CustomerdashboardComponent
+  },
+  {
+    path:"shopdash",component:ShopdashboardComponent
+  },
+  {
+    path:"addproduct",component:AddproductComponent
+  },
+  {
+    path:"myproducts",component:MyproductsComponent
+  },
+  {
+    path:"viewmyproduct/:productid",component:ViewmyproductComponent
+  },
+
 
 ];
 
