@@ -1,1 +1,52 @@
-<p>viewmyproduct works!</p>
+<app-shop-nav></app-shop-nav>
+<div class="container-fluid page-header mb-5 wow fadeIn" data-wow-delay="0.1s">
+    <div class="container">
+        <h1 class="display-3 mb-3 animated slideInDown">Product</h1>
+    </div>
+</div>
+<div class="container">
+    <h2>Product Details</h2>
+    <div class="card">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-4">
+            <img [src]="productdetails.image" alt="Product Image" class="img-fluid">
+          </div>
+          <div class="col-md-8">
+            <h4>{{productdetails.productname}}</h4>
+            <p>Price: ₹{{productdetails.price}}</p>
+            <div class="col-md-6">
+                <input type="text" class="form-control" [(ngModel)]="price">
+                <button class="btn btn-primary" (click)="updatePrice()">Update</button>
+            </div>
+            <p>Stock: {{productdetails.stock}}</p>
+            <div class="col-md-6">
+                <input type="text" class="form-control" [(ngModel)]="stock">
+                <button class="btn btn-primary" (click)="updateStock()">Update</button>
+            </div>
+            <p>Description: {{productdetails.description}}</p>
+            <p>Expiry Date: {{productdetails.expiry_date}}</p>
+
+            <p>Discount: {{productdetails.discount_percentage}}%</p>
+            <div class="col-md-6">
+                <input type="text" class="form-control" [(ngModel)]="discount">
+                <button class="btn btn-primary" (click)="updateDiscount()">Update</button>
+            </div>
+            <p>Availability: {{productdetails.availability}}</p>
+            <div class="col-md-6">
+                <select class="form-select" aria-label="Default select example" [(ngModel)]="availability" >
+                    <option value="" selected disabled>{{availability}}</option>
+                    <option value="Availble">Available</option>
+                    <option value="Unavailable">Unavailable</option>
+
+                  
+                  </select>
+                <button class="btn btn-primary" (click)="updateProductAvailability()">Update</button>
+            </div>
+            <p>Category: {{productdetails.category.category}}</p>
+            <p>Subcategory: {{productdetails.subcategory.subcategory}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

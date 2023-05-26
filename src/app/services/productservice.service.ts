@@ -9,6 +9,7 @@ const AUTH_API = 'http://localhost:3000/api/';
 export class ProductserviceService {
 
   constructor(private http:HttpClient) { }
+
   public addProduct(product:any):Observable<any>{
     return this.http.post(AUTH_API + 'product',product);
   }
@@ -24,5 +25,54 @@ export class ProductserviceService {
   public getProductsByShopId(shopid:any){
     return this.http.post(AUTH_API+'getproductbyshopid',{"shopid":shopid}) 
   }
+  public getProductsById(productid:any){
+    return this.http.post(AUTH_API+'getproductbyid',{"productid":productid}) 
+  }
+  public getAllProduct(){
+    return this.http.post(AUTH_API+'getallproducts',{}) 
+  }
+  public getProductByCategory(categoryid:any){
+    return this.http.post(AUTH_API+'getproductbycategory',{"categoryid":categoryid}) 
+  }
+  public getProductBySubcategory(subcategoryid:any){
+    return this.http.post(AUTH_API+'getproductbysubcategory',{"subcategoryid":subcategoryid}) 
+
+  }
+
+  //update
+  public updateProductStock(productid:any,stock:any){
+    return this.http.post(AUTH_API+'updateproductstock',{"productid":productid,"stock":stock}) 
+  }
+  public updateProductPrice(productid:any,price:any){
+    return this.http.post(AUTH_API+'updateproductprice',{"productid":productid,"price":price}) 
+  }
+  public updateProductDiscount(productid:any,discount:any){
+    return this.http.post(AUTH_API+'updateproductsdiscount',{"productid":productid,"discount_percentage":discount}) 
+  }
+  public updateProductAvailability(productid:any,availability:any){
+    return this.http.post(AUTH_API+'updateproductsavailability',{"productid":productid,"availability":availability}) 
+  }
+
+  //shipping
+  public getShippingAddress(userid:any){
+    return this.http.post(AUTH_API+'getallshipping',{"user":userid}) 
+  }
+  public addShippingAddress(shippingdetails:any){
+    return this.http.post(AUTH_API+'addshipping',shippingdetails) 
+  }
+
+  //order
+  public confirmOrder(orderdetails:any){
+    return this.http.post(AUTH_API+'createorder',orderdetails) 
+  }
+  public getOrderById(orderid:any){
+    return this.http.post(AUTH_API+'vieworderbyid',{"orderid":orderid}) 
+  }
+
+  //payment
+  public startPayment(paymentdetails:any){
+    return this.http.post(AUTH_API+'startpayment',paymentdetails) 
+  }
+
   
 }

@@ -1,1 +1,68 @@
 <app-customer-nav></app-customer-nav>
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-3">
+            <div class="accordion" id="sidebarMenu">
+                <!-- <div class="accordion-item" *ngFor="let category of category">
+                    <h2 class="accordion-header" id="headingOne">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        {{category.category}}
+                        </button>
+                    </h2>
+                    
+                </div> -->
+                <h4>Category</h4>
+                <select class="form-select" aria-label="Default select example1" [(ngModel)]="cat" (change)="getSubCategory()">
+                    <option value="" selected disabled>Select a Category</option>
+                    <option value="{{c._id}}" *ngFor="let c of category">{{c.category}}</option>
+                   
+                </select>
+                <h4>Subcategory</h4>
+
+                <select class="form-select" aria-label="Default select example2" [(ngModel)]="sub" (change)="getProductBySubcategory()">
+                    <option value="" selected disabled>Select a Subcategory</option>
+                    <option value="{{c._id}}" *ngFor="let c of subcategory">{{c.subcategory}}</option>
+                   
+                </select>
+                
+            </div>
+        </div>
+        <div class="col-9">
+            <div class="tab-content">
+                <div id="tab-1" class="tab-pane fade show p-0 active">
+                    <div class="row g-4">
+                        <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s" *ngFor="let p of products">
+                            <div class="product-item">
+                                <div class="position-relative bg-light overflow-hidden">
+                                    <img class="img-fluid w-100" [src]="p.image" alt="" width="100" height="100">
+                                    <div class="bg-secondary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">New</div>
+                                </div>
+                                <div class="text-center p-4">
+                                    <a class="d-block h5 mb-2" href="">{{p.productname}}</a>
+                                    <span class="text-primary me-1">₹{{p.price-(p.price*p.discount_percentage/100)}}</span>
+                                    <span class="text-body text-decoration-line-through">₹{{p.price}}</span>
+                                </div>
+                                <div class="d-flex border-top">
+                                    <small class="w-50 text-center border-end py-2">
+                                        <a class="text-body" [routerLink]="['/viewproduct', p._id]"><i class="fa fa-eye text-primary me-2"></i>View detail</a>
+                                    </small>
+                                    <small class="w-50 text-center py-2">
+                                        <a class="text-body" href=""><i class="fa fa-shopping-bag text-primary me-2"></i>Add to cart</a>
+                                    </small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-xxl py-5">
+    <div class="container">
+        
+    </div>
+</div>
+

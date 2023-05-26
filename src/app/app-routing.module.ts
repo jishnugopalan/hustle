@@ -11,6 +11,9 @@ import { CustomerdashboardComponent } from './customer/customerdashboard/custome
 import { AddproductComponent } from './shop/addproduct/addproduct.component';
 import { MyproductsComponent } from './shop/myproducts/myproducts.component';
 import { ViewmyproductComponent } from './shop/viewmyproduct/viewmyproduct.component';
+import { ViewproductComponent } from './customer/viewproduct/viewproduct.component';
+import { OrderComponent } from './customer/order/order.component';
+import { PaymentComponent } from './customer/payment/payment.component';
 
 const routes: Routes = [
   {path:"",component:HomepageComponent},
@@ -44,6 +47,16 @@ const routes: Routes = [
   {
     path:"viewmyproduct/:productid",component:ViewmyproductComponent
   },
+  {
+    path:"viewproduct/:productid",component:ViewproductComponent
+  },
+  {
+    path:"order/:productid/:qty/:orgprice",component:OrderComponent
+  },
+  {
+    path:"payment",component:PaymentComponent
+  },
+
 
 
 ];

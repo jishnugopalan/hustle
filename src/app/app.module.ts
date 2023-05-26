@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomepageComponent } from './homepage/homepage.component';
@@ -21,6 +21,9 @@ import { AddproductComponent } from './shop/addproduct/addproduct.component';
 import { MyproductsComponent } from './shop/myproducts/myproducts.component';
 import { DataTablesModule } from 'angular-datatables';
 import { ViewmyproductComponent } from './shop/viewmyproduct/viewmyproduct.component';
+import { ViewproductComponent } from './customer/viewproduct/viewproduct.component';
+import { OrderComponent } from './customer/order/order.component';
+import { PaymentComponent } from './customer/payment/payment.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,6 +42,9 @@ import { ViewmyproductComponent } from './shop/viewmyproduct/viewmyproduct.compo
     AddproductComponent,
     MyproductsComponent,
     ViewmyproductComponent,
+    ViewproductComponent,
+    OrderComponent,
+    PaymentComponent,
     
   ],
   imports: [
@@ -46,7 +52,7 @@ import { ViewmyproductComponent } from './shop/viewmyproduct/viewmyproduct.compo
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
-    DataTablesModule
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

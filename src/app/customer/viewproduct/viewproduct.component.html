@@ -1,0 +1,74 @@
+<app-customer-nav></app-customer-nav>
+
+<div class="container">
+    <h2>Product Details</h2>
+    <div class="card">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-4">
+            <img [src]="productdetails.image" alt="Product Image" class="img-fluid">
+          </div>
+          <div class="col-md-4">
+            <h3>{{productdetails.productname}}</h3>
+
+            <p>
+                <span class="text-primary me-1">₹{{productdetails.price-(productdetails.price*productdetails.discount_percentage/100)}}</span>
+                                    <span class="text-body text-decoration-line-through">₹{{productdetails.price}}</span>
+            </p>
+             <P class="text-success">{{productdetails.discount_percentage}}% Off</P>
+            <!-- <p>Stock: {{productdetails.stock}}</p> -->
+            
+            <p>Description: {{productdetails.description}}</p>
+            <p>Expiry Date: {{productdetails.expiry_date}}</p>
+
+            <!-- <p>Discount: {{productdetails.discount_percentage}}%</p>
+           
+            <p>Availability: {{productdetails.availability}}</p> -->
+            
+            <p>Category: {{productdetails.category.category}}</p>
+            <p>Subcategory: {{productdetails.subcategory.subcategory}}</p>
+          </div>
+          <div class="col-md-4">
+          <div class="card">
+            <div class="card-body">
+                <h3 class="text-primary">₹{{orgprice}}</h3>
+
+                <h5>Stock Status:{{productdetails.availability}}</h5>
+                <div class="alert alert-danger" role="alert" *ngIf="productdetails.availability=='Unavailable'">
+                   Out of Stock
+                </div>
+                <div *ngIf="productdetails.availability=='Available'">
+                 <input type="number" max="5" min="1" [(ngModel)]="qty" class="form-control">
+                 <div class="d-grid gap-2">
+                   <a class="btn btn-success" [routerLink]="['/order',productdetails._id,qty,orgprice]">Buy Now</a> 
+                    <button class="btn btn-warning">Add to Card</button>   
+                  </div>
+                
+
+                </div>
+            </div>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-6">
+                    <h3>Shop Details</h3>
+                    <p>Shop City:{{productdetails.shop.shop_city}}</p>
+                    <p>Shop District:{{productdetails.shop.shop_district}}</p>
+                    <p>Shop Pincode:{{productdetails.shop.shop_pincode}}</p>
+                    <p>Shop Phone:+91{{productdetails.shop.shop_phone}}</p>
+                    <p>Shop Email:{{productdetails.shop.shop_email}}</p>
+
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    
+  </div>

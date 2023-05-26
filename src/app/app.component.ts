@@ -30,7 +30,7 @@ export class AppComponent {
         this.isuser=true
         this.isadmin=false
         this.isshop=false
-        this.router.navigateByUrl("/customerdash")
+        this.router.navigateByUrl("/payment")
       }
       else if(this.roles=="shop"){
 
