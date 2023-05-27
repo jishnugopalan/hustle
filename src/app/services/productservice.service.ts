@@ -68,6 +68,15 @@ export class ProductserviceService {
   public getOrderById(orderid:any){
     return this.http.post(AUTH_API+'vieworderbyid',{"orderid":orderid}) 
   }
+  public getOrderByCustomerId(userid:any){
+    return this.http.post(AUTH_API+'vieworderbycustomerid',{"userid":userid}) 
+  
+  }
+  public getOrderByVendorId(userid:any){
+    return this.http.post(AUTH_API+'vieworderbyvendorid',{"userid":userid}) 
+  
+  }
+
 
   //payment
   public startPayment(paymentdetails:any){

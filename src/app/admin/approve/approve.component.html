@@ -1,0 +1,61 @@
+<app-admin-nav></app-admin-nav>
+<div class="container-fluid page-header mb-5 wow fadeIn" data-wow-delay="0.1s">
+    <div class="container">
+        <h1 class="display-3 mb-3 animated slideInDown">Approve Shops</h1>
+    </div>
+</div>
+
+<div class="container">
+    <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Shop Details</th>
+            <th scope="col">Shop Owner Details</th>
+            <th scope="col">License</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let s of shops;index as i">
+            <th scope="row">{{i+1}}</th>
+            <td>City:{{s.shop_city}}<br>
+                District:{{s.shop_district}}<br>
+                Pincode:{{s.shop_pincode}}<br>
+                Phone:{{s.shop_phone}}<br>
+                Email:{{s.shop_email}}
+
+
+            </td>
+            <td>
+                Name:{{s.user.name}}<br>
+                Phone:{{s.user.phone}}<br>
+                Emil:{{s.user.email}}<br>
+                Housename:{{s.owner_housename}}<br>
+                City:{{s.owner_city}}<br>
+                Street:{{s.owner_street}}<br>
+                District:{{s.owner_district}}<br>
+                Pincode:{{s.owner_pincode}}<br>
+                Adhaar number:{{s.owner_adhaar}}<br>
+            </td>
+            <td>
+
+                <img [src]="s.shop_license" width="200" height="200">
+            </td>
+            <td *ngIf="s.admin_status=='Pending'">
+                <button class="btn btn-success" (click)="approve(s._id)">Approve</button>
+
+                <button class="btn btn-danger" (click)="reject(s._id)">Reject</button>
+
+            </td>
+            <td *ngIf="s.admin_status=='Accept'">
+                <h5 class="text-success">Accepted</h5>
+            </td>
+            <td *ngIf="s.admin_status=='Reject'">
+                <h5 class="text-danger">Rejected</h5>
+            </td>
+          </tr>
+        
+        </tbody>
+      </table>
+</div>

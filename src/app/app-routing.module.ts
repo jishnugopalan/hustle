@@ -14,6 +14,14 @@ import { ViewmyproductComponent } from './shop/viewmyproduct/viewmyproduct.compo
 import { ViewproductComponent } from './customer/viewproduct/viewproduct.component';
 import { OrderComponent } from './customer/order/order.component';
 import { PaymentComponent } from './customer/payment/payment.component';
+import { MyordersComponent } from './customer/myorders/myorders.component';
+import { ShopordersComponent } from './shop/shoporders/shoporders.component';
+import { ViewshoporderComponent } from './shop/viewshoporder/viewshoporder.component';
+import { AdmindashComponent } from './admin/admindash/admindash.component';
+import { AddcategoryComponent } from './admin/addcategory/addcategory.component';
+import { AddshipperComponent } from './admin/addshipper/addshipper.component';
+import { ApproveComponent } from './admin/approve/approve.component';
+import { AddsubcategoryComponent } from './admin/addsubcategory/addsubcategory.component';
 
 const routes: Routes = [
   {path:"",component:HomepageComponent},
@@ -56,6 +64,32 @@ const routes: Routes = [
   {
     path:"payment",component:PaymentComponent
   },
+  {
+    path:"myorders",component:MyordersComponent
+  },
+
+  {
+    path:"shoporders",component:ShopordersComponent
+  },
+  {
+    path:"viewshoporder/:orderid",component:ViewshoporderComponent
+  },
+  {
+    path:"admindash",component:AdmindashComponent
+  },
+  {
+    path:"addcategory",component:AddcategoryComponent
+  },
+  {
+    path:"addsubcategory",component:AddsubcategoryComponent
+  },
+  {
+    path:"addshipper",component:AddshipperComponent
+  },
+  {
+    path:"approve",component:ApproveComponent
+  },
+
 
 
 

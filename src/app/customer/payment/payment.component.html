@@ -4,7 +4,7 @@
         <h1 class="display-3 mb-3 animated slideInDown">Payment</h1>
     </div>
 </div>
-<div class="container">
+<div class="container" *ngIf="transaction">
     <div class="d-flex justify-content-center" *ngIf="loading">
         <div class="spinner-border" role="status">
           <span class="visually-hidden">Loading...</span>
@@ -74,4 +74,19 @@
       </div>
     </div>
   </div>
+
+  <div class="container my-5" *ngIf="!transaction">
+    <div class="row justify-content-center">
+        <div class="col-lg-6">
+            <div class="card">
+                <div class="card-body text-center">
+                    <i class="bi bi-check-circle-fill text-success display-1"></i>
+                    <h1 class="mt-4">Payment Successful!</h1>
+                    <p class="lead">Your payment has been received, thank you for your purchase!</p>
+                    <a routerLink="/myorders" class="btn btn-primary">Continue Shopping</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
   

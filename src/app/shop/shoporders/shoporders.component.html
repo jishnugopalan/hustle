@@ -1,0 +1,44 @@
+<app-shop-nav></app-shop-nav>
+<div class="container-fluid page-header mb-5 wow fadeIn" data-wow-delay="0.1s">
+    <div class="container">
+        <h1 class="display-3 mb-3 animated slideInDown">My Orders</h1>
+    </div>
+  </div>
+
+  <div class="container my-5">
+    <h1>My Orders</h1>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Order ID</th>
+          <th scope="col">Date</th>
+          <th scope="col">Items</th>
+          <th scope="col">Quantity</th>
+          <th scope="col">Total Cost</th>
+          <th scope="col">User Details</th>
+          <th scope="col">Status</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Each row would be an order -->
+        <tr *ngFor="let p of orderdetails">
+          <th scope="row">{{p._id}}</th>
+          <td>{{ p.timestamp | date:'medium' }}</td>
+          <td>{{p.product.productname}}<br>
+          
+          </td>
+          <td>{{p.qty}}</td>
+          <td>₹{{p.total_price}}</td>
+          <td>
+            {{p.user.name}}
+          </td>
+          <td>{{p.order_status}}</td>
+          <td>
+            <a class="btn btn-success" [routerLink]="['/viewshoporder',p._id]">Track Product</a>
+          </td>
+        </tr>
+        <!-- Add more orders here -->
+      </tbody>
+    </table>
+</div>

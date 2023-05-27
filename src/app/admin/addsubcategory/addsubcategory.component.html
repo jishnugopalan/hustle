@@ -1,0 +1,37 @@
+<app-admin-nav></app-admin-nav>
+<div class="container-fluid page-header mb-5 wow fadeIn" data-wow-delay="0.1s">
+    <div class="container">
+        <h1 class="display-3 mb-3 animated slideInDown">Add Subcategory</h1>
+    </div>
+</div>
+<!-- <div class="form-group">
+    <label>Subcategory</label>
+    <select class="form-select" aria-label="Default select example" formControlName="category" class="form-control" [ngClass]="{'is-invalid': category?.invalid && (category?.dirty || category?.touched)}">
+        <option value="" selected disabled>Select a category</option>
+          <option value="{{c._id}}" *ngFor="let c of cat">{{c.category}}</option>
+        
+    </select>
+</div> -->
+
+<div class="container mt-5">
+    <form [formGroup]="categoryForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label>Category</label>
+            <select class="form-select" aria-label="Default select example" formControlName="categoryid" class="form-control">
+                <option value="" selected disabled>Select a category</option>
+                  <option value="{{c._id}}" *ngFor="let c of cat">{{c.category}}</option>
+                
+            </select>
+            <div *ngIf="categoryForm.controls['categoryid'].touched && categoryForm.controls['categoryid'].invalid" class="text-danger">Category is required.</div>
+        </div>
+      <div class="form-group">
+        <label>Subcategory</label>
+        <input type="text" formControlName="subcategory" class="form-control" placeholder="Subcategory">
+        <div *ngIf="categoryForm.controls['subcategory'].touched && categoryForm.controls['subcategory'].invalid" class="text-danger">Subcategory is required.</div>
+      </div>
+  
+      <div class="form-group">
+        <button type="submit" [disabled]="!categoryForm.valid" class="btn btn-primary">Submit</button>
+      </div>
+    </form>
+  </div>

@@ -24,6 +24,15 @@ import { ViewmyproductComponent } from './shop/viewmyproduct/viewmyproduct.compo
 import { ViewproductComponent } from './customer/viewproduct/viewproduct.component';
 import { OrderComponent } from './customer/order/order.component';
 import { PaymentComponent } from './customer/payment/payment.component';
+import { MyordersComponent } from './customer/myorders/myorders.component';
+import { ShopordersComponent } from './shop/shoporders/shoporders.component';
+import { ViewshoporderComponent } from './shop/viewshoporder/viewshoporder.component';
+import { AdmindashComponent } from './admin/admindash/admindash.component';
+import { AdminNavComponent } from './admin/admin-nav/admin-nav.component';
+import { ApproveComponent } from './admin/approve/approve.component';
+import { AddcategoryComponent } from './admin/addcategory/addcategory.component';
+import { AddsubcategoryComponent } from './admin/addsubcategory/addsubcategory.component';
+import { AddshipperComponent } from './admin/addshipper/addshipper.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,6 +54,15 @@ import { PaymentComponent } from './customer/payment/payment.component';
     ViewproductComponent,
     OrderComponent,
     PaymentComponent,
+    MyordersComponent,
+    ShopordersComponent,
+    ViewshoporderComponent,
+    AdmindashComponent,
+    AdminNavComponent,
+    ApproveComponent,
+    AddcategoryComponent,
+    AddsubcategoryComponent,
+    AddshipperComponent,
     
   ],
   imports: [

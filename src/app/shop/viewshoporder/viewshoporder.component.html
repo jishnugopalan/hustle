@@ -1,0 +1,93 @@
+<app-shop-nav></app-shop-nav>
+<div class="container-fluid page-header mb-5 wow fadeIn" data-wow-delay="0.1s">
+    <div class="container">
+        <h1 class="display-3 mb-3 animated slideInDown">My Orders</h1>
+    </div>
+  </div>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-6">
+            <div class="card mt-5">
+                <div class="card-header">
+                    <h5>Order Summary</h5>
+                </div>
+                <div class="card-body">
+                    <h6 class="mb-3">Product Details:</h6>
+                    <ul class="list-group mb-3">
+                        <li class="list-group-item d-flex justify-content-between lh-sm">
+                            
+                            <div>
+                                <img src="{{orderdetails.product.image}}" alt="Product Image" style="width:100px; height:100px;" class="img-thumbnail me-3">
+                                <div>
+                                    <h6 class="my-0">{{orderdetails.product.productname}}</h6>
+                                    
+                                </div>
+                            </div>
+                                
+                            
+                            <span class="text-muted">₹{{orderdetails.mrp}} </span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between">
+                            <span>Quantity ({{orderdetails.qty}})</span>
+                            <strong>₹{{orderdetails.total_price}}</strong>
+                        </li>
+                    </ul>
+
+                    <hr class="mb-4">
+                    <div class="row">
+                        
+                        <div class="col-md-3">
+                            
+                            <h6 class="mb-3">Shipping Details:</h6>
+                                   
+                                     {{orderdetails.shipping.fullname}}<br>
+                                     {{orderdetails.shipping.phone}}<br>
+                                     {{orderdetails.shipping.housename}}<br>
+                                     {{orderdetails.shipping.district}}<br>
+                                     {{orderdetails.shipping.city}}<br>
+                                     {{orderdetails.shipping.street}}<br>
+                                     {{orderdetails.shipping.pincode}}<br>
+                                 
+                            
+                          
+                        </div>
+                      
+                        <div class="col-md-3">
+                            <h6 class="mb-3">Order By</h6>
+                               
+                                   
+                                     {{orderdetails.user.name}}<br>
+                                     {{orderdetails.user.phone}}<br>
+                                     
+                                    
+                                 
+                            
+                          
+                        </div>
+                    </div>
+                    
+                   
+                   
+
+                  
+                    <ul class="list-group mb-3">
+                        <li class="list-group-item d-flex justify-content-between">
+                            <span>Total (INR)</span>
+                            <strong>₹{{orderdetails.total_price}}</strong>
+                        </li>
+                    </ul>
+                    <ul class="list-group mb-3">
+                        <li class="list-group-item d-flex justify-content-between">
+                            <span>Order Status</span>
+                            <strong>{{orderdetails.order_status}}</strong>
+                        </li>
+                    </ul>
+                   
+
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

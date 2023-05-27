@@ -11,6 +11,7 @@ export class PaymentComponent {
   paymentForm:any
   orderdetails:any
   loading = false;
+  transaction=true;
   constructor(private productservice:ProductserviceService){}
   onSubmit() {
     // TODO: Process checkout data here
@@ -30,6 +31,7 @@ export class PaymentComponent {
         this.loading = false;
         this.productservice.startPayment(paymentdetails).subscribe((res:any)=>{
           console.log(res)
+          this.transaction=false
           
         })
       }, 2000);
