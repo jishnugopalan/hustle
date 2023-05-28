@@ -22,6 +22,9 @@ import { AddcategoryComponent } from './admin/addcategory/addcategory.component'
 import { AddshipperComponent } from './admin/addshipper/addshipper.component';
 import { ApproveComponent } from './admin/approve/approve.component';
 import { AddsubcategoryComponent } from './admin/addsubcategory/addsubcategory.component';
+import { ShipperdashComponent } from './shipper/shipperdash/shipperdash.component';
+import { SetorderComponent } from './shipper/setorder/setorder.component';
+import { UpdateorderComponent } from './shipper/updateorder/updateorder.component';
 
 const routes: Routes = [
   {path:"",component:HomepageComponent},
@@ -88,6 +91,15 @@ const routes: Routes = [
   },
   {
     path:"approve",component:ApproveComponent
+  },
+  {
+    path:"shipperdash",component:ShipperdashComponent
+  },
+  {
+    path:"setorder",component:SetorderComponent
+  },
+  {
+    path:"updateorder",component:UpdateorderComponent
   },
 
 

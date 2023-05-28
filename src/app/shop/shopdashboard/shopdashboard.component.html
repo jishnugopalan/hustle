@@ -1,2 +1,51 @@
 <app-shop-nav></app-shop-nav>
-<h3 class="text-center">Shop Owner Dashboard</h3>
+<div class="container-fluid page-header mb-5 wow fadeIn" data-wow-delay="0.1s">
+    <div class="container">
+        <h1 class="display-3 mb-3 animated slideInDown">Shop Owner Dashboard</h1>
+       
+    </div>
+  </div>
+
+<br><br><br>
+<div class="container">
+    <div class="text-center">
+        <div class="alert alert-danger" role="alert" *ngIf="!isAccept">
+           You are not verified by Admin. Please wait for some days
+        </div>
+    </div>
+   
+</div>
+
+<div class="container" *ngIf="isAccept">
+    <div class="row justify-content-center">
+        <div class="col-sm-4">
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                  <h5 class="card-title">Add Product</h5>
+                  <p class="card-text">Showcase your products</p>
+                  <a routerLink="/addproduct" class="btn btn-primary">Click Here</a>
+                </div>
+              </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                  <h5 class="card-title">My Product</h5>
+                  <p class="card-text">Added products</p>
+                  <a routerLink="/myproducts" class="btn btn-primary">Click Here</a>
+                </div>
+              </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                  <h5 class="card-title">My Orders</h5>
+                  <p class="card-text">View Customers Order</p>
+                  <a routerLink="/shoporders" class="btn btn-primary">Click Here</a>
+                </div>
+              </div>
+          </div>
+    </div>
+</div>
+
+    

@@ -12,6 +12,7 @@ export class AppComponent {
   isuser:boolean=false
   isshop:boolean=false
   isadmin:boolean=false
+  isshipper:boolean=false
   roles="";
   isLoggedIn = false;
   
@@ -44,6 +45,13 @@ export class AppComponent {
         this.isadmin=true
         this.isshop=false
         this.router.navigateByUrl("/admindash")
+      }
+      else if(this.roles=="shipper"){
+        this.isuser=false
+        this.isadmin=false
+        this.isshop=false
+        this.isshipper=true
+        this.router.navigateByUrl("/shipperdash")
       }
     }
   }

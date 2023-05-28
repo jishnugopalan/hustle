@@ -33,6 +33,10 @@ import { ApproveComponent } from './admin/approve/approve.component';
 import { AddcategoryComponent } from './admin/addcategory/addcategory.component';
 import { AddsubcategoryComponent } from './admin/addsubcategory/addsubcategory.component';
 import { AddshipperComponent } from './admin/addshipper/addshipper.component';
+import { ShipperdashComponent } from './shipper/shipperdash/shipperdash.component';
+import { ShipperNavComponent } from './shipper/shipper-nav/shipper-nav.component';
+import { SetorderComponent } from './shipper/setorder/setorder.component';
+import { UpdateorderComponent } from './shipper/updateorder/updateorder.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -63,6 +67,10 @@ import { AddshipperComponent } from './admin/addshipper/addshipper.component';
     AddcategoryComponent,
     AddsubcategoryComponent,
     AddshipperComponent,
+    ShipperdashComponent,
+    ShipperNavComponent,
+    SetorderComponent,
+    UpdateorderComponent,
     
   ],
   imports: [
