@@ -30,7 +30,8 @@
           <td>₹{{p.total_price}}</td>
           <td>{{p.order_status}}</td>
           <td>
-            <a class="btn btn-success" [routerLink]="['/viewproduct',p.product._id]">View Product</a>
+            <a *ngIf="p.order_status!='Payment Completed'" class="btn btn-success" [routerLink]="['/trackorderbycustomer',p._id]">Track Order</a>
+            <p *ngIf="p.order_status=='Payment Completed'">Order not picked</p>
           </td>
         </tr>
         <!-- Add more orders here -->

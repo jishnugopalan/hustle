@@ -1,14 +1,12 @@
-<app-shipper-nav></app-shipper-nav>
+<app-customer-nav></app-customer-nav>
 <div class="container-fluid page-header mb-5 wow fadeIn" data-wow-delay="0.1s">
     <div class="container">
-        <h1 class="display-3 mb-3 animated slideInDown">Orders</h1>
-       
+        <h1 class="display-3 mb-3 animated slideInDown">My Orders</h1>
     </div>
 </div>
-
 <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-6">
+    <div class="row">
+        <div class="col-12">
             <div class="card mt-5">
                 <div class="card-header">
                     <h5>Order Summary</h5>
@@ -27,11 +25,11 @@
                             </div>
                                 
                             
-                            <span class="text-muted">₹{{orderdetails.mrp}} </span>
+                            <span class="text-muted">₹{{orderdetails.order.mrp}} </span>
                         </li>
                         <li class="list-group-item d-flex justify-content-between">
-                            <span>Quantity ({{orderdetails.qty}})</span>
-                            <strong>₹{{orderdetails.total_price}}</strong>
+                            <span>Quantity ({{orderdetails.order.qty}})</span>
+                            <strong>₹{{orderdetails.order.total_price}}</strong>
                         </li>
                     </ul>
 
@@ -55,13 +53,18 @@
                         </div>
                       
                         <div class="col-md-3">
-                            <h6 class="mb-3">Order By</h6>
+                            <h6 class="mb-6">Order Picked By</h6>
                                
                                    
-                                     {{orderdetails.user.name}}<br>
-                                     {{orderdetails.user.phone}}<br>
-
+                                     {{orderdetails.shipper.name}}<br>
+                                     {{orderdetails.shipper.phone}}<br>
+                                     
+                                    
+                                 
+                            
+                          
                         </div>
+                        
                         <div class="col-md-6">
                             <h6 class="mb-3">Shop Details</h6>
                         
@@ -82,20 +85,32 @@
                     <ul class="list-group mb-3">
                         <li class="list-group-item d-flex justify-content-between">
                             <span>Total (INR)</span>
-                            <strong>₹{{orderdetails.total_price}}</strong>
+                            <strong>₹{{orderdetails.order.total_price}}</strong>
                         </li>
                     </ul>
                     <ul class="list-group mb-3">
                         <li class="list-group-item d-flex justify-content-between">
                             <span>Order Status</span>
-                            <strong>{{orderdetails.order_status}}</strong>
+                            <strong>{{orderdetails.order.order_status}}</strong>
                         </li>
                     </ul>
+                    <!-- <ul class="list-group mb-3">
+                        <li class="list-group-item d-flex justify-content-between">
+                            <span>Change Status</span>
+                            <select class="form-control" [(ngModel)]="status" >
+                                <option>Order Ready to Pick</option>
+                                <option>Order Picked</option>
+                                <option>Order Delevered Soon</option>
+                                <option>Order Delivered</option>
+
+                            </select>
+                        </li>
+                    </ul> -->
                    
-                    <div class="d-grid gap-2" *ngIf="orderdetails.order_status=='Payment Completed'">
-                        <button class="btn btn-primary" type="button" (click)="pickOrder(orderdetails._id,orderdetails.product._id,orderdetails.user._id,orderdetails.vendorid._id,orderdetails.shipping._id)">Pick Order</button>
+                    <!-- <div class="d-grid gap-2">
+                        <button class="btn btn-primary" type="button" (click)="changeStatus()">Change Status</button>
                       
-                      </div>
+                      </div> -->
                     
                 </div>
             </div>

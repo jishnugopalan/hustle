@@ -37,6 +37,10 @@ import { ShipperdashComponent } from './shipper/shipperdash/shipperdash.componen
 import { ShipperNavComponent } from './shipper/shipper-nav/shipper-nav.component';
 import { SetorderComponent } from './shipper/setorder/setorder.component';
 import { UpdateorderComponent } from './shipper/updateorder/updateorder.component';
+import { ViewpickedComponent } from './shipper/viewpicked/viewpicked.component';
+import { TrackorderComponent } from './customer/trackorder/trackorder.component';
+import { ProfileupdateComponent } from './profileupdate/profileupdate.component';
+import { CustomerprofileComponent } from './customer/customerprofile/customerprofile.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -71,6 +75,10 @@ import { UpdateorderComponent } from './shipper/updateorder/updateorder.componen
     ShipperNavComponent,
     SetorderComponent,
     UpdateorderComponent,
+    ViewpickedComponent,
+    TrackorderComponent,
+    ProfileupdateComponent,
+    CustomerprofileComponent,
     
   ],
   imports: [

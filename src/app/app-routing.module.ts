@@ -25,6 +25,9 @@ import { AddsubcategoryComponent } from './admin/addsubcategory/addsubcategory.c
 import { ShipperdashComponent } from './shipper/shipperdash/shipperdash.component';
 import { SetorderComponent } from './shipper/setorder/setorder.component';
 import { UpdateorderComponent } from './shipper/updateorder/updateorder.component';
+import { ViewpickedComponent } from './shipper/viewpicked/viewpicked.component';
+import { TrackorderComponent } from './customer/trackorder/trackorder.component';
+import { CustomerprofileComponent } from './customer/customerprofile/customerprofile.component';
 
 const routes: Routes = [
   {path:"",component:HomepageComponent},
@@ -96,10 +99,21 @@ const routes: Routes = [
     path:"shipperdash",component:ShipperdashComponent
   },
   {
-    path:"setorder",component:SetorderComponent
+    path:"setorder/:orderid",component:SetorderComponent
   },
   {
     path:"updateorder",component:UpdateorderComponent
+  },
+  {
+    path:"pickedorder/:id",component:ViewpickedComponent
+  },
+
+  {
+    path:"trackorderbycustomer/:id",component:TrackorderComponent
+  },
+
+  {
+    path:"customerprofile",component:CustomerprofileComponent
   },
 
 

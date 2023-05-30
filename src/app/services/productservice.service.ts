@@ -83,5 +83,24 @@ export class ProductserviceService {
     return this.http.post(AUTH_API+'startpayment',paymentdetails) 
   }
 
-  
+  //shipper
+  public viewAllOrderShipper(){
+    return this.http.post(AUTH_API+'viewall',{})
+  }
+  public setOrder(orderdetails:any){
+    return this.http.post(AUTH_API+'setorder',orderdetails)
+  }
+  public viewOrderByShipper(userid:any){
+    return this.http.post(AUTH_API+'vieworderbyshipper',{"userid":userid})
+  }
+  public updateByShipper(order:any,status:any){
+    return this.http.post(AUTH_API+'updateorder',{"order":order,"status":status})
+  }
+  public viewOrderByShipperId(id:any){
+    return this.http.post(AUTH_API+'viewshipperordeerbyid',{"id":id})
+  }
+  public viewShippingByOrderId(id:any){
+    return this.http.post(AUTH_API+'findbyorderid',{"id":id})
+  }
+
 }
