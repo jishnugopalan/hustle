@@ -1,1 +1,59 @@
-<p>profileupdate works!</p>
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-4 mx-auto">
+            <div class="card shadow">
+                <div class="card-body">
+                    <div class="d-flex flex-column align-items-center text-center">
+                        <div class="rounded-circle p-1 bg-primary" style="width:110px; height:110px;">
+                            <i class="fas fa-user fa-5x text-white"></i>
+                        </div>
+                        <div class="mt-3">
+                            <h4>{{profile.name}}</h4>
+                            <p class="text-muted mb-1">{{profile.phone}}</p>
+                            <p class="text-secondary">{{profile.email}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <label>Update Phone Number</label>
+            <input class="form-control" type="number" [(ngModel)]="phone" >
+            <br>
+            <div class="">
+                <button class="btn btn-primary" (click)="updatePhone()">Update</button>
+
+            </div>
+        </div>
+        <div class="col-md-6">
+          
+            <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+                <div class="form-group">
+                  <label for="email">Email:</label>
+                  <input type="email" id="email" class="form-control" formControlName="email">
+                  <span *ngIf="!profileForm.controls['email'].valid && profileForm.controls['email'].touched">Please enter a valid email!</span>
+                </div>
+              
+                <div class="form-group">
+                  <label for="password">Old Password:</label>
+                  <input type="password" id="password" class="form-control" formControlName="password">
+                  <span *ngIf="!profileForm.controls['password'].valid && profileForm.controls['password'].touched">Password is required!</span>
+                </div>
+              
+                <div class="form-group">
+                  <label for="newPassword">New Password:</label>
+                  <input type="password" id="newpassword" class="form-control" formControlName="newpassword">
+                  <span *ngIf="!profileForm.controls['newpassword'].valid && profileForm.controls['newpassword'].touched">New password is required!</span>
+                </div>
+              <br>
+                <button type="submit" class="btn btn-primary" [disabled]="!profileForm.valid">Submit</button>
+              </form>
+              
+                    </div>
+    </div>
+    <div class="row">
+       
+    </div>
+</div>

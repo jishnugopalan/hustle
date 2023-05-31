@@ -41,6 +41,9 @@ import { ViewpickedComponent } from './shipper/viewpicked/viewpicked.component';
 import { TrackorderComponent } from './customer/trackorder/trackorder.component';
 import { ProfileupdateComponent } from './profileupdate/profileupdate.component';
 import { CustomerprofileComponent } from './customer/customerprofile/customerprofile.component';
+import { ShopprofileComponent } from './shop/shopprofile/shopprofile.component';
+import { ShipperprofileComponent } from './shipper/shipperprofile/shipperprofile.component';
+import { AdminprofileComponent } from './admin/adminprofile/adminprofile.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -79,6 +82,9 @@ import { CustomerprofileComponent } from './customer/customerprofile/customerpro
     TrackorderComponent,
     ProfileupdateComponent,
     CustomerprofileComponent,
+    ShopprofileComponent,
+    ShipperprofileComponent,
+    AdminprofileComponent,
     
   ],
   imports: [

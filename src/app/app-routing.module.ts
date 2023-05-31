@@ -28,6 +28,9 @@ import { UpdateorderComponent } from './shipper/updateorder/updateorder.componen
 import { ViewpickedComponent } from './shipper/viewpicked/viewpicked.component';
 import { TrackorderComponent } from './customer/trackorder/trackorder.component';
 import { CustomerprofileComponent } from './customer/customerprofile/customerprofile.component';
+import { ShipperprofileComponent } from './shipper/shipperprofile/shipperprofile.component';
+import { ShopprofileComponent } from './shop/shopprofile/shopprofile.component';
+import { AdminprofileComponent } from './admin/adminprofile/adminprofile.component';
 
 const routes: Routes = [
   {path:"",component:HomepageComponent},
@@ -114,6 +117,15 @@ const routes: Routes = [
 
   {
     path:"customerprofile",component:CustomerprofileComponent
+  },
+  {
+    path:"shipperprofile",component:ShipperprofileComponent
+  },
+  {
+    path:"shopprofile",component:ShopprofileComponent
+  },
+  {
+    path:"adminprofile",component:AdminprofileComponent
   },
 
 
