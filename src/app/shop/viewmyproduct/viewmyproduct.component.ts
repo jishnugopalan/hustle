@@ -38,6 +38,7 @@ export class ViewmyproductComponent {
     this.productSerice.updateProductAvailability(this.id,this.availability).subscribe((res:any)=>{
       console.log(res)
       this.productdetails.availability=this.availability
+      this.ngOnInit()
     })
   }
   

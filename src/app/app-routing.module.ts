@@ -31,6 +31,7 @@ import { CustomerprofileComponent } from './customer/customerprofile/customerpro
 import { ShipperprofileComponent } from './shipper/shipperprofile/shipperprofile.component';
 import { ShopprofileComponent } from './shop/shopprofile/shopprofile.component';
 import { AdminprofileComponent } from './admin/adminprofile/adminprofile.component';
+import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.component';
 
 const routes: Routes = [
   {path:"",component:HomepageComponent},
@@ -126,6 +127,10 @@ const routes: Routes = [
   },
   {
     path:"adminprofile",component:AdminprofileComponent
+  },
+
+  {
+    path:"forgotpassword",component:ForgotpasswordComponent
   },
 
 

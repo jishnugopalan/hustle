@@ -44,6 +44,7 @@ import { CustomerprofileComponent } from './customer/customerprofile/customerpro
 import { ShopprofileComponent } from './shop/shopprofile/shopprofile.component';
 import { ShipperprofileComponent } from './shipper/shipperprofile/shipperprofile.component';
 import { AdminprofileComponent } from './admin/adminprofile/adminprofile.component';
+import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -85,6 +86,7 @@ import { AdminprofileComponent } from './admin/adminprofile/adminprofile.compone
     ShopprofileComponent,
     ShipperprofileComponent,
     AdminprofileComponent,
+    ForgotpasswordComponent,
     
   ],
   imports: [

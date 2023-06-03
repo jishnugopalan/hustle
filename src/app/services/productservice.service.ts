@@ -38,6 +38,11 @@ export class ProductserviceService {
     return this.http.post(AUTH_API+'getproductbysubcategory',{"subcategoryid":subcategoryid}) 
 
   }
+  public getProductByCity(subcategoryid:any,city:any){
+    return this.http.post(AUTH_API+'getproductbycity',{"subcategoryid":subcategoryid,"city":city}) 
+
+  }
+
 
   //update
   public updateProductStock(productid:any,stock:any){

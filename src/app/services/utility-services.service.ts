@@ -32,6 +32,14 @@ export class UtilityServicesService {
   public forgotpassword(upd:any){
     return this.http.post(AUTH_API+'forgotpassword',upd)
   }
+  public getuserbyemail(email:any){
+    return this.http.post(AUTH_API+'getuserbyemail',{"email":email})
+  }
+  public updateforgotpassword(email:any,password:any){
+    return this.http.post(AUTH_API+'updatenewpassword',{"email":email,"password":password})
+  }
+
+
   ngOnInit() {
     
   }

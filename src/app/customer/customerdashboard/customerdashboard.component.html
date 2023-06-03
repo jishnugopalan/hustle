@@ -26,6 +26,13 @@
                     <option value="{{c._id}}" *ngFor="let c of subcategory">{{c.subcategory}}</option>
                    
                 </select>
+                <h4>City</h4>
+                <select class="form-select" aria-label="Default select example" [(ngModel)]="c" (change)="getProductByCity()">
+                    <option value="" disabled selected >Select City</option>
+                    <option value="{{d}}" *ngFor="let d of city">{{d}}</option>
+                    
+                   
+                  </select>
                 
             </div>
         </div>

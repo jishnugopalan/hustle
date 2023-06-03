@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ProductserviceService } from 'src/app/services/productservice.service';
+import { UtilityServicesService } from 'src/app/services/utility-services.service';
 
 @Component({
   selector: 'app-customerdashboard',
@@ -12,8 +13,16 @@ export class CustomerdashboardComponent {
   cat:any
   sub:any
   subcategory:any
-  constructor(private productService:ProductserviceService){}
-
+  city:any
+  c:any
+  constructor(private productService:ProductserviceService,private service:UtilityServicesService){}
+  getProductByCity(){
+    console.log(this.c)
+    this.productService.getProductByCity(this.sub,this.c).subscribe((res:any)=>{
+      console.log(res)
+      this.products=res
+    })
+  }
   getSubCategory(){
     this.productService.getProductByCategory(this.cat).subscribe((res3:any)=>{
       this.products.splice(0, this.products.length);
@@ -39,6 +48,10 @@ export class CustomerdashboardComponent {
       console.log(res)
       this.category=res
      
+    })
+    this.service.getCity().subscribe((res:any)=>{
+      console.log(res)
+      this.city=res.data
     })
     
   }
