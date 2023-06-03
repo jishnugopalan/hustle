@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthserviceService } from '../services/authservice.service';
 import { TokenserviceService } from '../services/tokenservice.service';
+import { ProductserviceService } from '../services/productservice.service';
 
 @Component({
   selector: 'app-homepage',
@@ -9,10 +10,8 @@ import { TokenserviceService } from '../services/tokenservice.service';
   styleUrls: ['./homepage.component.css']
 })
 export class HomepageComponent {
-  constructor(private service:AuthserviceService,private tokenStorage: TokenserviceService){
-
-  }
- 
+  constructor(private service:AuthserviceService,private tokenStorage: TokenserviceService,private productservice:ProductserviceService){}
+ products:any
   msg=""
   alert=false
   isLoggedIn = false;
@@ -62,6 +61,10 @@ export class HomepageComponent {
     window.location.reload();
   }
   ngOnInit(): void {
+    this.productservice.getAllProduct().subscribe((res:any)=>{
+      console.log(res)
+      this.products=res
+    })
 
     if (this.tokenStorage.getToken()) {
       console.log("in")

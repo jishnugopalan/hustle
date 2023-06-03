@@ -56,9 +56,7 @@ export class RegistrationComponent {
     
   },{validators:this.checkPasswords})
 
-  otpForm=new FormGroup({
-    otp:new FormControl('',[Validators.required,Validators.minLength(6),Validators.maxLength(6)])
-  })
+
 
   get department(){
     return this.registration.get('department')
