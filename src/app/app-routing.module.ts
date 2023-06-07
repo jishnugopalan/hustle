@@ -32,6 +32,8 @@ import { ShipperprofileComponent } from './shipper/shipperprofile/shipperprofile
 import { ShopprofileComponent } from './shop/shopprofile/shopprofile.component';
 import { AdminprofileComponent } from './admin/adminprofile/adminprofile.component';
 import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.component';
+import { CartpageComponent } from './customer/cartpage/cartpage.component';
+import { CartcheckoutComponent } from './customer/cartcheckout/cartcheckout.component';
 
 const routes: Routes = [
   {path:"",component:HomepageComponent},
@@ -131,6 +133,13 @@ const routes: Routes = [
 
   {
     path:"forgotpassword",component:ForgotpasswordComponent
+  },
+
+  {
+    path:"cart",component:CartpageComponent
+  },
+  {
+    path:"cartcheckout",component:CartcheckoutComponent
   },
 
 

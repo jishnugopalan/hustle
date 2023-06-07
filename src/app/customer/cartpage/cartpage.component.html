@@ -1,0 +1,51 @@
+<app-customer-nav></app-customer-nav>
+<div class="container-fluid page-header mb-5 wow fadeIn" data-wow-delay="0.1s">
+    <div class="container">
+        <h1 class="display-3 mb-3 animated slideInDown">My Cart</h1>
+    </div>
+</div>
+<div class="container">
+    
+
+    <table class="table" *ngIf="productdetails.length>0">
+        <thead>
+            <tr>
+                <th>Product</th>
+                <th>Price</th>
+                <th>Discount</th>
+                <th>Quantity</th>
+                <th>Total</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let p of productdetails">
+                <td>{{p.product.productname}}</td>
+                <td>₹{{p.product.price}}</td>
+                <td>{{p.product.discount_percentage}}%</td>
+
+                <td>
+                   {{p.qty}}
+                </td>
+                <td>₹{{p.price}}</td>
+                <td>
+                    <button class="btn btn-danger btn-sm" (click)="deletCartItem(p._id)">Remove</button>
+                </td>
+            </tr>
+          
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="3"></td>
+                <td><strong>Total: ₹{{total}}</strong></td>
+                <td>
+                    <a routerLink="/cartcheckout" class="btn btn-primary">Checkout</a>
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+    <div *ngIf="productdetails.length==0">
+
+        <h3 class="text-center">Your cart is empty</h3>
+    </div>
+</div>

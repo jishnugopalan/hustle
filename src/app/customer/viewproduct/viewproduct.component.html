@@ -42,7 +42,7 @@
                  <input type="number" max="5" min="1" [(ngModel)]="qty" class="form-control">
                  <div class="d-grid gap-2" *ngIf="productdetails.stock-qty>0">
                    <a class="btn btn-success" [routerLink]="['/order',productdetails._id,qty,orgprice]">Buy Now</a> 
-                    <!-- <button class="btn btn-warning">Add to Card</button>    -->
+                    <button class="btn btn-warning" (click)="addItemToCart()">Add to Card</button>   
                   </div>
                   <br>
                   <div class="alert alert-danger" role="alert" *ngIf="productdetails.stock-qty<=0">

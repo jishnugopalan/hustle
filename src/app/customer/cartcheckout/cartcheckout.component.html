@@ -1,0 +1,141 @@
+<app-customer-nav></app-customer-nav>
+<div class="container-fluid page-header mb-5 wow fadeIn" data-wow-delay="0.1s">
+    <div class="container">
+        <h1 class="display-3 mb-3 animated slideInDown">Order Summary</h1>
+    </div>
+</div>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-6">
+            <div class="card mt-5">
+                <div class="card-header">
+                    <h5>Order Summary</h5>
+                </div>
+                <div class="card-body">
+                    <h6 class="mb-3">Product Details:</h6>
+                    <ul class="list-group mb-3" *ngFor="let p of products">
+                        <li class="list-group-item d-flex justify-content-between lh-sm">
+                            
+                            <div>
+                                <img src="{{p.product.image}}" alt="Product Image" style="width:100px; height:100px;" class="img-thumbnail me-3">
+                                <div>
+                                    <h6 class="my-0">{{p.product.productname}}</h6>
+                                
+                                </div>
+                            </div>
+                                
+                            
+                            <span class="text-muted">₹{{p.price}} </span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between">
+                            <span>Quantity ({{p.qty}})</span>
+                          
+                        </li>
+                    </ul>
+
+                    <div>
+                        <strong>Total :₹{{total}}</strong>
+                    </div>
+                    <hr class="mb-4">
+                    <h6 class="mb-3">Shipping Details:</h6>
+                    <div *ngIf="!shipingdetails">
+                        <form [formGroup]="form">
+                            <div *ngFor="let p of addresses">
+                                <input type="radio" formControlName="shipping"  value="{{p._id}}" (change)="getAddress(p._id)"> 
+                                 {{p.fullname}}
+                                 {{p.phone}}
+                                 {{p.housename}}
+                                 {{p.district}}
+                                 {{p.city}}
+                                 {{p.street}}
+                                 {{p.pincode}}
+                              </div>
+                        </form>
+                        
+                      
+                    </div>
+                    <form [formGroup]="orderForm"  class="container mt-4"  (ngSubmit)="onSubmit()" >
+                        <div class="mb-3">
+                          <label class="form-label">Full Name</label>
+                          <input type="text" formControlName="fullName" class="form-control" required>
+                          <div *ngIf="orderForm.get('fullName')?.touched && orderForm.get('fullName')?.invalid" class="text-danger">
+                            Full name is required
+                          </div>
+                        </div>
+                      
+                        <div class="mb-3">
+                          <label class="form-label">Phone</label>
+                          <input type="text" formControlName="phone" class="form-control" required>
+                          <div *ngIf="orderForm.get('phone')?.touched && orderForm.get('phone')?.invalid" class="text-danger">
+                            Phone number is required
+                          </div>
+                        </div>
+                      
+                        <div class="mb-3">
+                          <label class="form-label">House Name</label>
+                          <input type="text" formControlName="houseName" class="form-control" required>
+                          <div *ngIf="orderForm.get('houseName')?.touched && orderForm.get('houseName')?.invalid" class="text-danger">
+                            House name is required
+                          </div>
+                        </div>
+                      
+                        <div class="mb-3">
+                          <label class="form-label">District</label>
+                          <select class="form-select" aria-label="Default select example" formControlName="district" id="district">
+                            <option value="" disabled selected>Select District</option>
+                            <option value="Alappuzha">Alappuzha</option>
+                            <option value="Ernakulam">Ernakulam</option>
+                            <option value="Kozhikode">Kozhikode</option>
+                            <option value="Palakkad">Palakkad</option>
+                            <option value="Kollam">Kollam</option>
+                            <option value="Kannur">Kannur</option>
+                            <option value="Kasaragod">Kasaragod</option>
+                            <option value="Idukki">Idukki</option>
+                            <option value="Kottayam">Kottayam</option>
+                            <option value="Thrissur">Thrissur</option>
+                            <option value="Pathanamthitta">Pathanamthitta</option>
+                            <option value="Malappuram">Malappuram</option>
+                            <option value="Wayanad">Wayanad</option>
+                            <option value="Thiruvananthapuram">Thiruvananthapuram</option>
+        
+                           
+                          </select>
+                          <div *ngIf="orderForm.get('district')?.touched && orderForm.get('district')?.invalid" class="text-danger">
+                            District is required
+                          </div>
+                        </div>
+                      
+                        <div class="mb-3">
+                          <label class="form-label">City</label>
+                          <input type="text" formControlName="city" class="form-control" required>
+                          <div *ngIf="orderForm.get('city')?.touched && orderForm.get('city')?.invalid" class="text-danger">
+                            City is required
+                          </div>
+                        </div>
+                      
+                        <div class="mb-3">
+                          <label class="form-label">Street</label>
+                          <input type="text" formControlName="street" class="form-control" required>
+                          <div *ngIf="orderForm.get('street')?.touched && orderForm.get('street')?.invalid" class="text-danger">
+                            Street is required
+                          </div>
+                        </div>
+                      
+                        <div class="mb-3">
+                          <label class="form-label">Pincode</label>
+                          <input type="text" formControlName="pincode" class="form-control" required>
+                          <div *ngIf="orderForm.get('pincode')?.touched && orderForm.get('pincode')?.invalid" class="text-danger">
+                            Pincode is required
+                          </div>
+                        </div>
+                      
+                        <button [disabled]="!orderForm.valid" class="btn btn-primary btn-lg btn-block" type="submit">Add Address</button>
+                      </form>
+                      <div class="d-grid gap-2">
+                        <button class="btn btn-primary btn-lg btn-block" (click)="confirmOrder()" type="submit">Confirm Order</button>
+                      </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>            

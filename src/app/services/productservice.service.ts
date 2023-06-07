@@ -7,9 +7,9 @@ const AUTH_API = 'http://localhost:3000/api/';
   providedIn: 'root'
 })
 export class ProductserviceService {
-
+cart:any
   constructor(private http:HttpClient) { }
-
+//product
   public addProduct(product:any):Observable<any>{
     return this.http.post(AUTH_API + 'product',product);
   }
@@ -40,6 +40,19 @@ export class ProductserviceService {
   }
   public getProductByCity(subcategoryid:any,city:any){
     return this.http.post(AUTH_API+'getproductbycity',{"subcategoryid":subcategoryid,"city":city}) 
+
+  }
+  //cart
+  public addItemToCart(items:any){
+    return this.http.post(AUTH_API+'addtocart',items) 
+
+  }
+  public viewCartItemByuserid(userid:any){
+    return this.http.post(AUTH_API+'getcartbyuserid',{"userid":userid}) 
+
+  }
+  public deleteCartItem(cartid:any){
+    return this.http.post(AUTH_API+'deletecart',{"cartid":cartid}) 
 
   }
 
