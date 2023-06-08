@@ -62,6 +62,7 @@ shippingadd=""
       console.log(orderdetails)
       this.productService.confirmOrder(orderdetails).subscribe((res:any)=>{
         console.log(res)
+        this.productService.order.push(res._id)
         alert("Order confirmed successfully")
         this.router.navigateByUrl("/payment")
       })

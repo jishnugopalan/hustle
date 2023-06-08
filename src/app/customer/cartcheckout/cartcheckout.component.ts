@@ -52,6 +52,7 @@ this.productservice.addShippingAddress(this.orderForm.value).subscribe((res:any)
       alert("Please add ashipping address")
     }
     else{
+      var c=0
       for(let i=0;i<this.products.length;i++){
         var vendorid="";
         this.productservice.getProductsById(this.products[i].product._id).subscribe((res:any)=>{
@@ -69,22 +70,18 @@ this.productservice.addShippingAddress(this.orderForm.value).subscribe((res:any)
           console.log(orderdetails)
           this.productservice.confirmOrder(orderdetails).subscribe((res2:any)=>{
           console.log(res2)
+          this.productservice.order.push(res2._id)
           console.log("Order confirmed"+i)
-           //this.router.navigateByUrl("/payment")
+          c=c+1
+          if(c==this.products.length){
+            this.router.navigateByUrl("/payment")
+          }
+           
           })
 
         })
        
-      }
-
-     
-      // console.log(orderdetails)
-      // this.productservice.confirmOrder(orderdetails).subscribe((res:any)=>{
-      //   console.log(res)
-      //   alert("Order confirmed successfully")
-      //   this.router.navigateByUrl("/payment")
-      // })
-     
+      }     
     }
   }
 

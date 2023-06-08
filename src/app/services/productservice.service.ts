@@ -8,6 +8,8 @@ const AUTH_API = 'http://localhost:3000/api/';
 })
 export class ProductserviceService {
 cart:any
+// order=[]
+order: string[] = [];
   constructor(private http:HttpClient) { }
 //product
   public addProduct(product:any):Observable<any>{
